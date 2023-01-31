@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { BmcModel } from 'src/app/models/BmcModel';
 import { GeoGraphicModel } from 'src/app/models/DemoGraphic.Model';
 import { MccModel } from 'src/app/models/MccModel';
+import { MemberModel } from 'src/app/models/MemberModel';
 import { MppModel } from 'src/app/models/MppModel';
 import { PlantModel } from 'src/app/models/plantModel';
 import { RouteModel } from 'src/app/models/RouteModel';
@@ -47,6 +48,7 @@ export class MemberPopupComponent implements OnInit {
    mppData  = new MppModel();
    GeoData = new GeoGraphicModel();
    RouteData = new RouteModel();
+   formData = new MemberModel();
   btnTxt = "";
   isArrow:boolean = false;
   SelectedBmcCode = "";
