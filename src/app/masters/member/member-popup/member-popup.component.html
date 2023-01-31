@@ -13,7 +13,7 @@
                     <div class="row">
                       
                         
-                        <div class="col-md-2">
+                        <div class="col-md-4">
                             <mat-form-field>
                                 <mat-select (selectionChange)="getAllMcc($event)"  placeholder="Plant">
                                     <mat-select-filter [array]="PlantList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterPlantList =$event"></mat-select-filter>
@@ -24,7 +24,7 @@
                             </mat-form-field>
                         </div>
         
-                        <div class="col-md-2">
+                        <div class="col-md-4">
                             <mat-form-field>
                                 <mat-select (selectionChange)="getBmcAll($event)"  placeholder="MCC">
                                     <mat-select-filter [array]="MccList" [placeholder]="'Filter'" [displayMember]="'MCC_Name'" (filteredReturn)="filterMccList =$event"></mat-select-filter>
@@ -35,7 +35,7 @@
                             </mat-form-field>
                         </div>
         
-                        <div class="col-md-2">
+                        <div class="col-md-4">
                             <mat-form-field>
                                 <mat-select (selectionChange)="getAllRoute($event)"   placeholder="BMC">
                                     <mat-select-filter [array]="BmcList" [placeholder]="'Filter'" [displayMember]="'Center_Name'" (filteredReturn)="filterBmcList =$event"></mat-select-filter>
@@ -46,7 +46,7 @@
                             </mat-form-field>
                         </div>
         
-                        <div class="col-md-2">
+                        <div class="col-md-4">
                             <mat-form-field>
                                 <mat-select   placeholder="Route">
                                     <mat-select-filter [array]="RouteCodeList" [placeholder]="'Filter'" [displayMember]="'Route_Name'" (filteredReturn)="filterRouteCodeList =$event"></mat-select-filter>
@@ -58,7 +58,7 @@
                         </div>
         
         
-                        <div class="col-md-2">
+                        <div class="col-md-4">
                             <mat-form-field>
                                 <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="Mpp">
                                     <mat-select-filter [array]="MppList" [placeholder]="'Filter'" [displayMember]="'Society_Name'" (filteredReturn)="filterMppList =$event"></mat-select-filter>
@@ -69,7 +69,7 @@
                             </mat-form-field>
                         </div>
         
-                        <div class="col-md-3">
+                        <!-- <div class="col-md-3">
                             <mat-form-field>
                                 <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MPP">
                                     <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
@@ -78,7 +78,7 @@
                                     </mat-option>
                                 </mat-select>
                             </mat-form-field>
-                        </div>
+                        </div> -->
                        
         
                      </div>
@@ -92,146 +92,103 @@
                     
                   
                     <div class="col-md-3">
-                        <mat-form-field>
-                            <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="Plant">
-                                <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                    {{item.StateName}}
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field>
+                        <mat-form-field >
+                            <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Form Number">
+                            <mat-hint>Hint</mat-hint>
+                          </mat-form-field>
                     </div>
     
                     <div class="col-md-3">
-                        <mat-form-field>
-                            <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MCC">
-                                <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                    {{item.StateName}}
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field>
+                        <mat-form-field >
+                            <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="First Name">
+                            <mat-hint>Hint</mat-hint>
+                          </mat-form-field>
                     </div>
     
                     <div class="col-md-3">
-                        <mat-form-field>
-                            <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="BMC">
-                                <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                    {{item.StateName}}
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field>
+                        <mat-form-field >
+                            <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Middle Name">
+                            <mat-hint>Hint</mat-hint>
+                          </mat-form-field>
                     </div>
     
                     <div class="col-md-3">
-                        <mat-form-field>
-                            <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="Route">
-                                <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                    {{item.StateName}}
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field>
+                        <mat-form-field >
+                            <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Last Name">
+                            <mat-hint>Hint</mat-hint>
+                          </mat-form-field>
                     </div>
     
                     <div class="col-md-3">
+                        <mat-form-field >
+                            <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Member Code">
+                            <mat-hint>Hint</mat-hint>
+                          </mat-form-field>
+                    </div>
+
+                    <div class="col-md-3">
+                        <mat-form-field >
+                            <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Other Code">
+                            <mat-hint>Hint</mat-hint>
+                          </mat-form-field>
+                    </div>
+
+                    <div class="col-md-3">
                         <mat-form-field>
-                            <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MPP">
-                                <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                    {{item.StateName}}
-                                </mat-option>
-                            </mat-select>
+                            <mat-select   placeholder="Gender">
+                                <mat-option  [value]="0">Select</mat-option>
+                                <mat-option  [value]="1"> Male</mat-option>
+                                <mat-option  [value]="1"> Female </mat-option>
+                             </mat-select>
                         </mat-form-field>
                     </div>
 
                     <div class="col-md-3">
                         <mat-form-field>
-                            <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MPP">
-                                <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                    {{item.StateName}}
-                                </mat-option>
-                            </mat-select>
+                            <mat-select   placeholder="Cast Category">
+                                <mat-option  [value]="0">Select</mat-option>
+                                <mat-option  [value]="1"> General</mat-option>
+                                <mat-option  [value]="2"> Obc </mat-option>
+                                <mat-option  [value]="3"> Sc </mat-option>
+                                <mat-option  [value]="4"> St </mat-option>
+                             </mat-select>
                         </mat-form-field>
                     </div>
 
                     <div class="col-md-3">
                         <mat-form-field>
-                            <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MPP">
-                                <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                    {{item.StateName}}
-                                </mat-option>
-                            </mat-select>
+                            <input matInput [matDatepicker]="picker1" placeholder="Birth Date">
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker  #picker1></mat-datepicker>
                         </mat-form-field>
                     </div>
 
                     <div class="col-md-3">
-                        <mat-form-field>
-                            <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MPP">
-                                <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                    {{item.StateName}}
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field>
+                        <mat-form-field >
+                            <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Age">
+                            <mat-hint>Hint</mat-hint>
+                          </mat-form-field>
                     </div>
 
                     <div class="col-md-3">
-                        <mat-form-field>
-                            <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MPP">
-                                <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                    {{item.StateName}}
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field>
+                        <mat-form-field >
+                            <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Qualification">
+                            <mat-hint>Hint</mat-hint>
+                          </mat-form-field>
                     </div>
 
                     <div class="col-md-3">
-                        <mat-form-field>
-                            <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MPP">
-                                <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                    {{item.StateName}}
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field>
+                        <mat-form-field >
+                            <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Unique Number Code">
+                            <mat-hint>Hint</mat-hint>
+                          </mat-form-field>
                     </div>
 
                     <div class="col-md-3">
-                        <mat-form-field>
-                            <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MPP">
-                                <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                    {{item.StateName}}
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field>
-                    </div>
-
-                    <div class="col-md-3">
-                        <mat-form-field>
-                            <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MPP">
-                                <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                    {{item.StateName}}
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field>
-                    </div>
-
-                    <div class="col-md-3">
-                        <mat-form-field>
-                            <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MPP">
-                                <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                    {{item.StateName}}
-                                </mat-option>
-                            </mat-select>
-                        </mat-form-field>
+                        <mat-form-field >
+                            <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Member Type">
+                            <mat-hint>Hint</mat-hint>
+                          </mat-form-field>
                     </div>
                    
     
@@ -244,52 +201,43 @@
                 <mat-card-content >
                     <div class="row">
                         <div class="col-md-3">
-                            <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="Plant">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Address Line1">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+        
+                        <div class="col-md-3">
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Address Line2">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+        
+                        <div class="col-md-3">
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Post office">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
                         </div>
         
                         <div class="col-md-3">
                             <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MCC">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="City">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
                         </div>
         
                         <div class="col-md-3">
-                            <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="BMC">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Pin Code">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
                         </div>
-        
+
                         <div class="col-md-3">
                             <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="Route">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                        </div>
-        
-                        <div class="col-md-3">
-                            <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MPP">
+                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="Country">
                                     <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
                                     <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
                                         {{item.StateName}}
@@ -300,7 +248,7 @@
 
                         <div class="col-md-3">
                             <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MPP">
+                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="State">
                                     <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
                                     <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
                                         {{item.StateName}}
@@ -311,7 +259,7 @@
 
                         <div class="col-md-3">
                             <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MPP">
+                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="District">
                                     <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
                                     <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
                                         {{item.StateName}}
@@ -322,7 +270,7 @@
 
                         <div class="col-md-3">
                             <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MPP">
+                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="Sub-District">
                                     <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
                                     <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
                                         {{item.StateName}}
@@ -333,7 +281,7 @@
 
                         <div class="col-md-3">
                             <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MPP">
+                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="Village">
                                     <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
                                     <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
                                         {{item.StateName}}
@@ -344,7 +292,7 @@
 
                         <div class="col-md-3">
                             <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MPP">
+                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="Hamlet">
                                     <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
                                     <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
                                         {{item.StateName}}
@@ -354,14 +302,17 @@
                         </div>
 
                         <div class="col-md-3">
-                            <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MPP">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Mobile">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3">
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Email">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
                         </div>
                        
         
@@ -377,7 +328,7 @@
                         
                         <div class="col-md-3">
                             <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="Plant">
+                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="Bank">
                                     <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
                                     <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
                                         {{item.StateName}}
@@ -387,58 +338,38 @@
                         </div>
         
                         <div class="col-md-3">
-                            <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MCC">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Bank Branch">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
                         </div>
         
                         <div class="col-md-3">
-                            <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="BMC">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="IFSC">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
                         </div>
         
                         <div class="col-md-3">
-                            <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="Route">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Account No.">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
                         </div>
         
                         <div class="col-md-3">
-                            <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MPP">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Account Holder Name">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
                         </div>
 
                         <div class="col-md-3">
-                            <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MPP">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Adhar No.">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
                         </div>
                        
         
@@ -454,57 +385,53 @@
                        
                         <div class="col-md-3">
                             <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="Plant">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
+                            <mat-select   placeholder="Cast Category">
+                                <mat-option  [value]="0">Select</mat-option>
+                                <mat-option  [value]="1"> Active</mat-option>
+                                <mat-option  [value]="2">Expire</mat-option>
+                             </mat-select>
+                        </mat-form-field>
+                        </div>
+        
+                        <div class="col-md-3">
+                            <mat-form-field>
+                                <input matInput [matDatepicker]="wefDate" placeholder="Birth Date">
+                                <mat-datepicker-toggle matSuffix [for]="wefDate"></mat-datepicker-toggle>
+                                <mat-datepicker  #wefDate></mat-datepicker>
                             </mat-form-field>
                         </div>
         
                         <div class="col-md-3">
                             <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MCC">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
+                                <input matInput [matDatepicker]="wefDate" placeholder="WEF Date">
+                                <mat-datepicker-toggle matSuffix [for]="wefDate"></mat-datepicker-toggle>
+                                <mat-datepicker  #wefDate></mat-datepicker>
                             </mat-form-field>
                         </div>
         
                         <div class="col-md-3">
                             <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="BMC">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
+                                <input matInput [matDatepicker]="Apporval" placeholder="Apporval Date">
+                                <mat-datepicker-toggle matSuffix [for]="Apporval"></mat-datepicker-toggle>
+                                <mat-datepicker  #Apporval></mat-datepicker>
                             </mat-form-field>
                         </div>
         
                         <div class="col-md-3">
-                            <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="Route">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Accepted by">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
                         </div>
-        
+
                         <div class="col-md-3">
                             <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MPP">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <mat-select   placeholder="Approval Status">
+                                <mat-option  [value]="0">Select</mat-option>
+                                <mat-option  [value]="1"> Approved</mat-option>
+                                <mat-option  [value]="2">Un-Approved</mat-option>
+                             </mat-select>
+                        </mat-form-field>
                         </div>
                        
         
@@ -524,58 +451,141 @@
                     <div class="row">
                         
                         <div class="col-md-2">
-                            <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="Plant">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Cow Harifier No.">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
                         </div>
 
                         <div class="col-md-2">
-                            <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MCC">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                          
+                                <mat-form-field >
+                                    <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="buffalo Harrier No.">
+                                    <mat-hint>Hint</mat-hint>
+                                  </mat-form-field>
                         </div>
 
                         <div class="col-md-2">
-                            <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="BMC">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="mix Harrier No.">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
                         </div>
 
                         <div class="col-md-2">
-                            <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="Route">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Desi Cow Harrier No.">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3">
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Cow Dairy No.">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3">
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="buffalow Dairy No.">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3">
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Mix Dairy No.">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3">
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Desi Cow Dairy No.">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3">
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="CrossBred Dairy No.">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3">
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="cow Aninal Nos.">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3">
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="cow Aninal Nos.">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3">
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Baffalow Aninal Nos.">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3">
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="mix Aninal Nos.">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3">
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Desi Cow Aninal Nos.">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3">
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="CrossBred Aninal Nos.">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3">
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="LPD No.">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3">
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Household Consumption">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3">
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Market Consumption">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
                         </div>
 
                         <div class="col-md-3">
                             <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MPP">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <mat-select   placeholder="Milk Type">
+                                <mat-option  [value]="0">Select</mat-option>
+                                <mat-option  [value]="1"> Cow</mat-option>
+                                <mat-option  [value]="2">Baffalow</mat-option>
+                                <mat-option  [value]="3">Mix</mat-option>
+                             </mat-select>
+                        </mat-form-field>
                         </div>
                     
 
@@ -592,58 +602,69 @@
                     <div class="row">
                     
                         <div class="col-md-2">
-                            <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="Plant">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Name">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
                         </div>
 
                         <div class="col-md-2">
                             <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MCC">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
+                                <mat-select   placeholder="Gender">
+                                    <mat-option  [value]="0">Select</mat-option>
+                                    <mat-option  [value]="1"> Male</mat-option>
+                                    <mat-option  [value]="2">Female</mat-option>
+                                 </mat-select>
                             </mat-form-field>
                         </div>
 
                         <div class="col-md-2">
-                            <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="BMC">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Age">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
                         </div>
 
                         <div class="col-md-2">
-                            <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="Route">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Relation">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
                         </div>
 
                         <div class="col-md-3">
-                            <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MPP">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Nominee Name">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3">
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Relation">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3">
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Nominee Address">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3">
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Guardean Name">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+
+                        <div class="col-md-3">
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Family Member Age">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
                         </div>
                     
 
@@ -659,59 +680,70 @@
                     <div class="row">
                     
                         <div class="col-md-2">
-                            <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="Plant">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Addmission fee">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
                         </div>
 
                         <div class="col-md-2">
-                            <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MCC">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Share Qty.">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
                         </div>
 
                         <div class="col-md-2">
-                            <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="BMC">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Paid Amount">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
                         </div>
 
                         <div class="col-md-2">
-                            <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="Route">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Deposit Bank Name">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
                         </div>
 
                         <div class="col-md-3">
-                            <mat-form-field>
-                                <mat-select (selectionChange)="GetAllDistrict($event)"  placeholder="MPP">
-                                    <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
-                                    <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
-                                        {{item.StateName}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="Deposit Branch Name">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
                         </div>
+
+                        <div class="col-md-3">
+                            <mat-form-field >
+                                <input [(ngModel)]="formData.Form_Number" #Form_Number="ngModel" name="Form_Number"  matInput placeholder="DD">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+
+                        
+                    <div class="col-md-2">
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="Transit" placeholder="Transit Date">
+                            <mat-datepicker-toggle matSuffix [for]="Transit"></mat-datepicker-toggle>
+                            <mat-datepicker  #Transit></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-md-2">
+                        <mat-form-field>
+                            <mat-select   placeholder="Payment Mode">
+                                <mat-option  [value]="0">Select</mat-option>
+                                <mat-option  [value]="1"> cash</mat-option>
+                                <mat-option  [value]="2">DD</mat-option>
+                                <mat-option  [value]="3">Cheque</mat-option>
+                                <mat-option  [value]="4">UPI</mat-option>
+                                <mat-option  [value]="5">NEFT</mat-option>
+                                <mat-option  [value]="6">RTGS</mat-option>
+                                <mat-option  [value]="7">Other</mat-option>
+                             </mat-select>
+                        </mat-form-field>
+                    </div>
                     
 
                     </div>
