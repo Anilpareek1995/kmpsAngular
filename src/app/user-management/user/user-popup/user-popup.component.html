@@ -1,0 +1,129 @@
+<div class="container">
+
+
+    <mat-card>
+        <mat-card-header>
+          <mat-card-title>Add User</mat-card-title>
+          <!-- <mat-card-subtitle>End</mat-card-subtitle> -->
+        </mat-card-header>
+        <form #form="ngForm">
+
+        <mat-card-content class="scroll">
+            <div class="row">
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>USER NAME</mat-label>
+                        <input [(ngModel)]="formData.USERNAME" #USERNAME="ngModel" name="USERNAME" matInput placeholder="First Name">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>Login Id</mat-label>
+                        <input [(ngModel)]="formData.USERloginCODE" #USERloginCODE="ngModel" name="USERloginCODE" matInput placeholder="Login Id">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>Password</mat-label>
+                        <input [(ngModel)]="formData.USERPWD" #USERPWD="ngModel" name="USERPWD" matInput placeholder="Password">
+                       
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>Mobile</mat-label>
+                        <input [(ngModel)]="formData.mobno" #mobno="ngModel" name="mobno" matInput placeholder="Mobile">
+                       
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                
+
+                
+
+                
+
+                
+
+                <div class="col-md-3">
+                    <mat-form-field>
+                        <mat-select [(ngModel)]="formData.MccCode" #MccCode="ngModel" name="MccCode" placeholder="MCC">
+                            <mat-select-filter [placeholder]="'Filter'" [displayMember]="'Mcc_Name'" [array]="MccList" (filteredReturn)="_filterMccList =$event"></mat-select-filter>
+                            <mat-option *ngFor="let item of _filterMccList" [value]="item.mccid">
+                                {{item.Mcc_Name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field>
+                        <mat-select [(ngModel)]="formData.BmcCode" #BmcCode="ngModel" name="BmcCode" placeholder="BMC">
+                            <mat-select-filter [placeholder]="'Filter'" [displayMember]="'Bmc_Name'" [array]="bmcList" (filteredReturn)="_filterBmcList =$event"></mat-select-filter>
+                            <mat-option *ngFor="let item of _filterBmcList" [value]="item.Bmc_Id">
+                                {{item.Bmc_Name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field>
+                        <mat-select [(ngModel)]="formData.PPCode" #PPCode="ngModel" name="PPCode" placeholder="MPP">
+                            <mat-select-filter [placeholder]="'Filter'" [displayMember]="'Mpp_Name'" [array]="mppList" (filteredReturn)="_filterMppList =$event"></mat-select-filter>
+                            <mat-option *ngFor="let item of _filterMppList" [value]="item.Mpp_Id">
+                                {{item.Mpp_Name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+               
+
+                <div class="col-md-3">
+                    <mat-form-field>
+                        <mat-select [(ngModel)]="formData.USERTYPECODE" #USERTYPECODE="ngModel" name="USERTYPECODE" placeholder="User Role">
+                            <mat-select-filter [array]="RoleList" [placeholder]="'Filter'" [displayMember]="'Name'" (filteredReturn)="_filterRoleList =$event"></mat-select-filter>
+                            <mat-option *ngFor="let item of _filterRoleList" [value]="item.ID">
+                                {{item.Name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <mat-slide-toggle 
+                    [(ngModel)]="formData.status" #status="ngModel" name="status"
+                    class="example-margin"
+                    color="primary"
+                    [checked]="formData.status">
+                  Is Active
+                </mat-slide-toggle>
+                </div>
+            </div>
+
+           
+
+
+          </mat-card-content>
+
+        </form>
+        <mat-card-actions align="end">
+          <button (click)="close()" mat-button>Cancle</button>
+          <button (click)="OnSaveUser()" mat-button>Save</button>
+        </mat-card-actions>
+      </mat-card>
+
+
+
+    
+</div>

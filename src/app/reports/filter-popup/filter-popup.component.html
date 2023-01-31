@@ -1,0 +1,34 @@
+<div class="card">
+    <div class="card-body scroll">
+        <div class="card-title">Add Item</div>
+        <form #f="ngForm" (keydown.enter)="$event.preventDefault()">
+        <div class="row">
+
+           
+            <div class="col col-sm-4 col-md-6 mb-3">
+                <mat-form-field class="example-full-width">
+                    <input  [(ngModel)]="formData.FromDate" #FromDate="ngModel" name="FromDate"  type="date" matInput 
+                        placeholder="FromDate..." required/>
+                  </mat-form-field>
+            </div>
+            <div class="col col-sm-4 col-md-6 mb-3">
+                <mat-form-field class="example-full-width">
+                    <input  [(ngModel)]="formData.ToDate" #ToDate="ngModel" name="ToDate"  type="date" matInput 
+                        placeholder="ToDate..." required/>
+                  </mat-form-field>
+            </div>
+
+        </div>
+
+         <div class="row">
+            <div class="col">
+            <button (click)="close()" class="btn btn-primary">GET</button>
+            </div>
+
+            <div class="col text-left">
+                <button  class="btn btn-primary">Back</button>
+                </div>
+         </div>
+          </form>
+    </div>
+</div>

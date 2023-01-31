@@ -1,0 +1,86 @@
+<div class="container">
+
+
+    <mat-card>
+        <mat-card-header>
+          <mat-card-title>Add Mcc</mat-card-title>
+        </mat-card-header>
+        <form #form="ngForm">
+        <mat-card-content class="scroll">
+            <div class="row">
+
+                <div class="col-md-3">
+                    <mat-form-field>
+                        <mat-select [(ngModel)]="formData.Plant_Id" #Plant_Id="ngModel" name="Plant_Id" placeholder="Plant">
+                            <mat-select-filter [array]="PlantList" [placeholder]="'Filter'" [displayMember]="'Plant_Name'" (filteredReturn)="_filterPlantList =$event"></mat-select-filter>
+                            <mat-option *ngFor="let item of _filterPlantList" [value]="item.Plant_Id">
+                                {{item.Plant_Name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>MCC Name</mat-label>
+                        <input [(ngModel)]="formData.MCC_Name" #MCC_Name="ngModel" name="MCC_Name"  matInput placeholder="MCC Name">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>MCC Code</mat-label>
+                        <input [(ngModel)]="formData.Other_Code" #Other_Code="ngModel" name="Other_Code"  matInput placeholder="Plant Code">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>Adress</mat-label>
+                        <input [(ngModel)]="formData.Address_Line1" #Address_Line1="ngModel" name="Address_Line1"  matInput placeholder="Address ">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>City</mat-label>
+                        <input [(ngModel)]="formData.City" #City="ngModel" name="City"  matInput placeholder="City">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+
+
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="picker1" [(ngModel)]="formData.Valid_From" #Valid_From="ngModel" name="Valid_From" placeholder="Valid from">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker  #picker1></mat-datepicker>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-3 pt-3">
+                    <mat-slide-toggle 
+                    [(ngModel)]="formData.Is_Active" #Is_Active="ngModel" name="Is_Active"
+                    class="example-margin"
+                    color="primary"
+                    [checked]="formData.Is_Active">
+                  Is Active
+                </mat-slide-toggle>
+                </div>
+
+             </div>
+
+            
+          </mat-card-content>
+        </form>
+
+        <mat-card-actions align="end">
+      <button (click)="close()"  mat-button>Cancle</button>
+          <button (click)="OnSaveMcc()"  mat-button>{{btnTxt}}</button> 
+        </mat-card-actions>
+      </mat-card>
+</div>

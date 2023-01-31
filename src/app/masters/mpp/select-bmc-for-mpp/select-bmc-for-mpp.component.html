@@ -1,0 +1,9 @@
+
+<div class="card">
+    <div class="card-body">
+        <ul class="list-group">
+            <li *ngFor="let data of BmcList" (click)="onselectBmc(data.Center_Code)" class="list-group-item">{{data.Center_Name}}</li>
+          </ul>
+    </div>
+</div>
+

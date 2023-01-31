@@ -1,0 +1,82 @@
+<div class="container">
+
+
+    <mat-card>
+        <mat-card-header>
+          <mat-card-title>Update Company</mat-card-title>
+        </mat-card-header>
+        <form #form="ngForm">
+        <mat-card-content class="scroll">
+            <div class="row">
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>Plant Name</mat-label>
+                        <input [(ngModel)]="formData.Plant_Name" #Plant_Name="ngModel" name="Plant_Name"  matInput placeholder="Company Name">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>Plant Code</mat-label>
+                        <input [(ngModel)]="formData.Other_Code" #Other_Code="ngModel" name="Other_Code"  matInput placeholder="Plant Code">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>Adress</mat-label>
+                        <input [(ngModel)]="formData.Address_Line1" #Address_Line1="ngModel" name="Address_Line1"  matInput placeholder="Address ">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>City</mat-label>
+                        <input [(ngModel)]="formData.City" #City="ngModel" name="City"  matInput placeholder="City">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>Mobile</mat-label>
+                        <input [(ngModel)]="formData.Phone_Number" #Phone_Number="ngModel" name="Phone_Number" matInput placeholder="Mobile">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+              
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>Email</mat-label>
+                        <input [(ngModel)]="formData.Email_Address" #Email_Address="ngModel" name="Email_Address"  matInput placeholder="Enail">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3 pt-3">
+                    <mat-slide-toggle 
+                    [(ngModel)]="formData.Is_Active" #Is_Active="ngModel" name="Is_Active"
+                    class="example-margin"
+                    color="primary"
+                    [checked]="formData.Is_Active">
+                  Is Active
+                </mat-slide-toggle>
+                </div>
+
+             </div>
+
+            
+          </mat-card-content>
+        </form>
+
+        <mat-card-actions align="end">
+      <button (click)="close()"  mat-button>Cancle</button>
+          <button (click)="OnSavePlant()"  mat-button>{{btnTxt}}</button> 
+        </mat-card-actions>
+      </mat-card>
+</div>

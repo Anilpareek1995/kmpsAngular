@@ -1,0 +1,109 @@
+<div class="container">
+
+
+    <mat-card>
+        <mat-card-header>
+          <mat-card-title>Add Bmc</mat-card-title>
+        </mat-card-header>
+        <form #form="ngForm">
+        <mat-card-content class="scroll">
+            <div class="row">
+
+                <div class="col-md-3">
+                    <mat-form-field>
+                        <mat-select (selectionChange)="GetAllDistrict($event)" [(ngModel)]="formData.State_Code" #State_Code="ngModel" name="State_Code" placeholder="State">
+                            <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="filterStateList =$event"></mat-select-filter>
+                            <mat-option *ngFor="let item of filterStateList" [value]="item.StateId">
+                                {{item.StateName}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field>
+                        <mat-select (selectionChange)="GetAlltehsil($event)" [(ngModel)]="formData.District_Id" #District_Id="ngModel" name="District_Id" placeholder="District">
+                            <mat-select-filter [array]="DistrictList" [placeholder]="'Filter'" [displayMember]="'dstName'" (filteredReturn)="filterDistrictList =$event"></mat-select-filter>
+                            <mat-option *ngFor="let item of filterDistrictList" [value]="item.dstCode">
+                                {{item.dstName}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field>
+                        <mat-select (selectionChange)="GetAllVillage($event)" [(ngModel)]="formData.Sub_District_Id" #Sub_District_Id="ngModel" name="Sub_District_Id" placeholder="Tahsil">
+                            <mat-select-filter [array]="TehsilList" [placeholder]="'Filter'" [displayMember]="'SubDistrictName'" (filteredReturn)="filterTehsilList =$event"></mat-select-filter>
+                            <mat-option *ngFor="let item of filterTehsilList" [value]="item.SubDistrictId">
+                                {{item.SubDistrictName}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field>
+                        <mat-select  [(ngModel)]="formData.Village_Id" #Village_Id="ngModel" name="Village_Id" placeholder="Village">
+                            <mat-select-filter [array]="VillageList" [placeholder]="'Filter'" [displayMember]="'VillageName'" (filteredReturn)="filterVillageList =$event"></mat-select-filter>
+                            <mat-option *ngFor="let item of filterVillageList" [value]="item.VillageId">
+                                {{item.VillageName}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field>
+                        <mat-select [(ngModel)]="formData.Route_Code" #Route_Code="ngModel" name="Route_Code" placeholder="Route">
+                            <mat-select-filter [array]="RouteCodeList" [placeholder]="'Filter'" [displayMember]="'Route_Name'" (filteredReturn)="filterRouteCodeList =$event"></mat-select-filter>
+                            <mat-option *ngFor="let item of filterRouteCodeList" [value]="item.Route_Code">
+                                {{item.Route_Name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+              
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>Mpp Name</mat-label>
+                        <input [(ngModel)]="formData.Society_Name" #Society_Name="ngModel" name="Society_Name"  matInput placeholder="Mpp Name">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>Mpp Code</mat-label>
+                        <input [(ngModel)]="formData.Other_Code" #Other_Code="ngModel" name="Other_Code"  matInput placeholder="Mpp Code">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+               
+
+              
+
+                <div class="col-md-3 pt-3">
+                    <mat-slide-toggle 
+                    [(ngModel)]="formData.IsActive" #Is_Active="ngModel" name="IsActive"
+                    class="example-margin"
+                    color="primary"
+                    [checked]="formData.IsActive">
+                  Is Active
+                </mat-slide-toggle>
+                </div>
+
+             </div>
+
+            
+          </mat-card-content>
+        </form>
+
+        <mat-card-actions align="end">
+      <button (click)="close()"  mat-button>Cancle</button>
+          <button (click)="OnSaveMpp()"  mat-button>{{btnTxt}}</button> 
+        </mat-card-actions>
+      </mat-card>
+</div>

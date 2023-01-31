@@ -1,0 +1,184 @@
+<div class="card" *ngIf="!isExcel">
+
+    <div class="card-body">
+  
+      <div class="row">
+        <div class="col col-md-6">
+          <div class="row">
+            <!-- <div class="col col-md-3">
+              <h3>Add Mpp
+              </h3>
+            </div> -->
+  
+            <div class="col col-md-3">
+              <i (click)="openfiltermemberSelectDialog()" class="fa fa-filter"></i>
+            </div>
+  
+            <div class="col col-md-3">
+              <i (click)="onUploadexcel()" style="color: blue;" class="fa fa-upload"></i>
+            </div>
+  
+            <div class="col col-md-3">
+              <i  class="fa fa-download"></i>
+            </div>
+          </div>
+  
+          <mat-form-field>
+            <input matInput [(ngModel)]="filterMppName" [ngModelOptions]="{standalone: true}" placeholder="Filter">
+            <!-- <input matInput  placeholder="Filter"> -->
+          </mat-form-field>
+        </div>
+  
+        <div class="col col-md-6 text-right mb-3">
+          <button class="btn btn-primary">
+            <mat-icon (click)="openDialog()">add</mat-icon>
+          </button>
+        </div>
+      </div>
+  
+  
+      <div class="row">
+        <div class="col col-md-12">
+          <div>
+            <div class="table-responsive">
+              <table style="width: 100%;" class="table  table-bordered table-hover row-table hover table-lg">
+                <thead>
+                  <tr>
+                    <th style="text-transform:capitalize;">SNo.</th>
+                    
+                    <th *ngFor="let key of KeyMemberList" style="text-transform:capitalize;">{{key}}</th>
+                    <!-- <th style="text-transform:capitalize;">Mpp Name</th>
+                    <th style="text-transform:capitalize;">Mpp Code</th>
+                    <th style="text-transform:capitalize;">Route</th>
+                    <th style="text-transform:capitalize;">Status</th> -->
+                    <th style="text-transform:capitalize;" class="text-center">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    *ngFor="let data of MemberList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize;let i=index">
+                    <td>{{ pageSize *(page-1) + i+ 1}}</td>
+                    <td *ngFor="let key of KeyMemberList">{{data[key]}}</td>
+                    <!-- <td>{{data.Society_Name}}</td>
+                    <td>{{data.Society_Code}}</td>
+                    <td>{{data.Route_Name}}</td> -->
+                    <!-- <td>{{data.IsActive==1?'Active':'In-Active'}}</td> -->
+                    <td><mat-icon (click)="onEditUser(data)" style="color: navy;">edit</mat-icon>
+                      <mat-icon style="color: red;">delete</mat-icon>
+                    </td>
+  
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- <ngb-pagination
+	[collectionSize]="MemberList.length"
+	[(page)]="page"
+	[maxSize]="5"
+	[rotate]="true"
+	[ellipses]="false"
+	[boundaryLinks]="true"
+></ngb-pagination> -->
+            <ngb-pagination *ngIf="MemberList.length>0" [collectionSize]="MemberList.length" [(page)]="page"
+              [pageSize]="pageSize" [maxSize]="5" [rotate]="true"
+              [ellipses]="false"
+              [boundaryLinks]="true" class="d-flex justify-content-center"></ngb-pagination>
+          </div>
+        </div>
+      </div>
+  
+  
+      
+  
+  
+  
+  
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  <div class="card" *ngIf="isExcel">
+  
+    <div class="card-header">
+      <div class="card-title">
+        Upload Mpp
+      </div>
+    </div>
+    <div class="card-body">
+  
+      
+          <div class="row">
+            
+  
+            <div class="col col-md-6">
+              <input #excelUpload id="excelUpload"  (change)="onFileChange($event)" class="form-control form-control-sm" id="formFileSm" type="file">
+            </div>
+  
+  
+            <div class="col col-md-6 text-right">
+              <button class="btn btn-primary">
+                <i (click)="resetExcel()" class="fa fa-refresh" aria-hidden="true"></i>
+              </button>
+            </div>
+  
+          </div>
+  
+  
+          <div class="row">
+            <div class="col col-md-12">
+          <mat-form-field>
+            <input matInput [(ngModel)]="filterMppName" [ngModelOptions]="{standalone: true}" placeholder="Filter">
+          </mat-form-field> 
+        </div>
+  
+      
+      </div>
+  
+  
+      <div class="row">
+        <div class="col col-md-12">
+          <div>
+            <div class="table-responsive">
+              <table style="width: 100%;" class="table  table-bordered table-hover row-table hover table-lg">
+                <thead>
+                  <tr>
+                    <th style="text-transform:capitalize;">SNo.</th>
+                    <th *ngFor="let key of Excelkeys" style="text-transform:capitalize;">{{key}}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    *ngFor="let data of ExcelMppList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize;let i=index">
+                    <td>{{ pageSize *(page-1) + i+ 1}}</td>
+                    <td *ngFor="let key of Excelkeys" >{{data[key]}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <ngb-pagination *ngIf="ExcelMppList.length>0" [collectionSize]="ExcelMppList.length" [(page)]="page"
+              [pageSize]="pageSize" class="d-flex justify-content-center"></ngb-pagination>
+          </div>
+        </div>
+      </div>
+  
+  
+  
+  
+    </div>
+  
+    <div class="card-footer">
+      <div class="row">
+        <div class="col col-md-3">
+          <button (click)="onSaveUploadedMpp()" class="btn btn-primary">Save</button>
+        </div>
+  
+        <div class="col col-md-3">
+          <button (click)="onCloseExcel()" class="btn btn-primary">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

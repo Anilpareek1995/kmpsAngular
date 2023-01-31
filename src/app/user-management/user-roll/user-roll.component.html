@@ -1,0 +1,72 @@
+<div class="card">
+
+    <div class="card-body">
+     
+        <div class="row">
+          <div class="col col-md-6">
+          
+            <mat-form-field>
+                <input matInput [(ngModel)]="filterRoleName" [ngModelOptions]="{standalone: true}" placeholder="Filter">
+              </mat-form-field>
+          </div> 
+
+          
+          
+  
+          <div class="col col-md-6 text-right mb-3">
+            <button class="btn btn-primary">
+            <mat-icon (click)="openDialog()">add</mat-icon>
+            </button>
+          </div>
+        </div>
+       
+      
+      <div class="row">
+        <div class="col col-md-12">
+          <div *ngIf="UserRoleList!=null">
+            <table style="width: 100%;" class="table table-bordered table-hover row-table hover table-lg">
+              <thead>
+                <tr>
+                  <th style="text-transform:capitalize;">SNo.</th>
+                  <th style="text-transform:capitalize;">User Role</th>
+                  <th style="text-transform:capitalize;">USERTYPEDESC</th>
+                  <th style="text-transform:capitalize;">createdon</th>
+                  <th style="text-transform:capitalize;">Status</th>
+                  <th  style="text-transform:capitalize;" class="text-center">Action</th>
+                 
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let data of filterRoleList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize;let i=index">
+                  <td>{{ i+ 1}}</td>
+                  <td>{{data.USERTYPECODE}}</td>
+                  <td>{{data.USERTYPEDESC}}</td>
+                  <td>{{data.createdon}}</td>
+                  <td>{{data.IsActive==1?'Active':'In-Active'}}</td>
+                  <td><mat-icon (click)="onEditUser(data)" style="color: navy;">edit</mat-icon>
+                    <mat-icon style="color: red;">delete</mat-icon></td>
+                  
+                </tr>
+              </tbody>
+            </table>
+            <ngb-pagination *ngIf="filterRoleList.length>0" [collectionSize]="filterRoleList.length" [(page)]="page"
+                [pageSize]="pageSize" class="d-flex justify-content-center"></ngb-pagination>
+          </div>
+        </div>
+      </div>
+      
+      
+       
+     
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+    
+    
+   

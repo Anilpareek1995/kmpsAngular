@@ -1,0 +1,102 @@
+<div class="container">
+
+
+    <mat-card>
+        <mat-card-header>
+          <mat-card-title>Update Company</mat-card-title>
+        </mat-card-header>
+        <form #form="ngForm">
+        <mat-card-content class="scroll">
+            <div class="row">
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>Company Name</mat-label>
+                        <input [(ngModel)]="formData.Company_Name" #Company_Name="ngModel" name="Company_Name"  matInput placeholder="Company Name">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>Short Description</mat-label>
+                        <input [(ngModel)]="formData.Short_Description" #Short_Description="ngModel" name="Short_Description"  matInput placeholder="Short Description">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>Phone No.</mat-label>
+                        <input [(ngModel)]="formData.Mobile_No" #Mobile_No="ngModel" name="Mobile_No"  matInput placeholder="Phone No. ">
+                       
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>Email</mat-label>
+                        <input [(ngModel)]="formData.Email_Id" #Email_Id="ngModel" name="Email_Id"  matInput placeholder="Email">
+                       
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>Address</mat-label>
+                        <input [(ngModel)]="formData.Company_Address" #Company_Address="ngModel" name="Company_Address" matInput placeholder="Address">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+
+                    <mat-form-field>
+                        <mat-select [(ngModel)]="formData.State_Code" #State_Code="ngModel" name="State_Code" placeholder="State">
+                            <mat-select-filter [array]="StateList" [placeholder]="'Filter'" [displayMember]="'StateName'" (filteredReturn)="_filterStateList =$event"></mat-select-filter>
+                            <mat-option *ngFor="let item of _filterStateList" [value]="item.StateId">
+                                {{item.StateName}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                   
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>City</mat-label>
+                        <input [(ngModel)]="formData.City" #City="ngModel" name="City"  matInput placeholder="City">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>Pin Code</mat-label>
+                        <input [(ngModel)]="formData.Pincode" #Pincode="ngModel" name="Pincode" matInput placeholder="Pin">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+             </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <mat-slide-toggle 
+                    [(ngModel)]="formData.Is_Active" #Is_Active="ngModel" name="Is_Active"
+                    class="example-margin"
+                    color="primary"
+                    [checked]="formData.Is_Active">
+                  Is Active
+                </mat-slide-toggle>
+                </div>
+            </div>
+          </mat-card-content>
+        </form>
+
+        <mat-card-actions align="end">
+      <button (click)="close()"  mat-button>Cancle</button>
+          <button (click)="OnSaveCompany()"  mat-button>{{btnTxt}}</button> 
+        </mat-card-actions>
+      </mat-card>
+</div>

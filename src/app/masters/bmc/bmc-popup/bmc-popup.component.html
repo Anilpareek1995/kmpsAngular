@@ -1,0 +1,86 @@
+<div class="container">
+
+
+    <mat-card>
+        <mat-card-header>
+          <mat-card-title>Add Bmc</mat-card-title>
+        </mat-card-header>
+        <form #form="ngForm">
+        <mat-card-content class="scroll">
+            <div class="row">
+
+                <div class="col-md-3">
+                    <mat-form-field>
+                        <mat-select [(ngModel)]="formData.MCC_Id" #MCC_Id="ngModel" name="MCC_Id" placeholder="MCC">
+                            <mat-select-filter [array]="MccList" [placeholder]="'Filter'" [displayMember]="'MCC_Name'" (filteredReturn)="_filterMccList =$event"></mat-select-filter>
+                            <mat-option *ngFor="let item of _filterMccList" [value]="item.MCC_Id">
+                                {{item.MCC_Name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>Bmc Name</mat-label>
+                        <input [(ngModel)]="formData.Center_Name" #Center_Name="ngModel" name="Center_Name"  matInput placeholder="MCC Name">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>Bmc Code</mat-label>
+                        <input [(ngModel)]="formData.Other_Code" #Other_Code="ngModel" name="Other_Code"  matInput placeholder="Bmc Code">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>Bmc Dock</mat-label>
+                        <input [(ngModel)]="formData.Center_Docks" #Center_Docks="ngModel" name="Center_Docks"  matInput placeholder="Bmc Dock ">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>Address</mat-label>
+                        <input [(ngModel)]="formData.Address" #Address="ngModel" name="Address"  matInput placeholder="Address">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>City</mat-label>
+                        <input [(ngModel)]="formData.City" #City="ngModel" name="City"  matInput placeholder="City">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+              
+
+                <div class="col-md-3 pt-3">
+                    <mat-slide-toggle 
+                    [(ngModel)]="formData.Is_Active" #Is_Active="ngModel" name="Is_Active"
+                    class="example-margin"
+                    color="primary"
+                    [checked]="formData.Is_Active">
+                  Is Active
+                </mat-slide-toggle>
+                </div>
+
+             </div>
+
+            
+          </mat-card-content>
+        </form>
+
+        <mat-card-actions align="end">
+      <button (click)="close()"  mat-button>Cancle</button>
+          <button (click)="OnSaveBmc()"  mat-button>{{btnTxt}}</button> 
+        </mat-card-actions>
+      </mat-card>
+</div>

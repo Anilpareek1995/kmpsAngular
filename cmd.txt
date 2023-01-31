@@ -1,0 +1,43 @@
+----angular build command----
+ng build --configuration=production
+
+
+----angular upgrade commands----
+npm uninstall -g @angular/cli
+npm install -g @angular/cli@latest
+rm -rf node_modules
+npm uninstall --save-dev @angular/cli
+npm install --save-dev @angular/cli@latest
+npm install
+
+
+--only change
+"@angular/cli": "^14.2.6"
+
+
+ng update | -v re='@[[:alnum:]]' '$0 ~ re {printf $1 " "}' | ng update --force=true && npm update
+
+
+      Name                                    Version                  Command to update
+     -------------------------------------------------------------------------------------
+      @angular-eslint/schematics              13.5.0 -> 14.1.2         ng update @angular-eslint/schematics
+      @angular/cdk                            14.0.1 -> 14.2.5         ng update @angular/cdk
+      @angular/core                           14.0.1 -> 14.2.6         ng update @angular/core
+      @angular/material                       14.0.1 -> 14.2.5         ng update @angular/material
+
+C:\Data\Projects\PumaTraderNew>ng update @angular/core
+Using package manager: npm
+Collecting installed dependencies...
+Found 82 dependencies.
+Fetching dependency metadata from registry...
+                  Package "ngx-quill" has an incompatible peer dependency to "@angular/common" (requires "^7.0.0 || ^8.0.0" (extended), would install "14.2.6").
+                  Package "ngx-custom-validators" has an incompatible peer dependency to "@angular/core" (requires "^8.0.0" (extended), would install "14.2.6").
+                  Package "ngx-custom-validators" has an incompatible peer dependency to "@angular/forms" (requires "^8.0.0" (extended), would install "14.2.6").
+                  Package "ngx-quill" has an incompatible peer dependency to "@angular/platform-browser" (requires "^7.0.0 || ^8.0.0" (extended), would install "14.2.6").
+× Migration failed: Incompatible peer dependencies found.
+Peer dependency warnings when installing dependencies means that those dependencies might not work correctly together.
+You can use the '--force' option to ignore incompatible peer dependencies and instead address these warnings later.
+  See "C:\Users\Palash\AppData\Local\Temp\ng-HfD48n\angular-errors.log" for further details.
+
+
+C:\Data\Projects\PumaTraderNew>
