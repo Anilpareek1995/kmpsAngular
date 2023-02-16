@@ -12,6 +12,7 @@ import { MppService } from 'src/app/services/mpp.service';
 import { MppModel } from 'src/app/models/MppModel';
 import { MemberService } from 'src/app/services/member.service';
 import { MemberModel } from 'src/app/models/MemberModel';
+import { date } from 'ngx-custom-validators/src/app/date/validator';
 
 @Component({
   selector: 'app-member',
@@ -33,9 +34,9 @@ export class MemberComponent implements OnInit {
   _filterMpptxt: string = "";
   MppList: any[] = [];
   filterMppList: any[] = [];
-  ExcelMppList: any[] = [];
+  ExcelMemberList: any[] = [];
   filterExcelMppList: any[] = [];
-  UploadExcelMppList: any[] = [];
+  UploadExcelMemberList: any[] = [];
   Excelkeys:any[]=[];
   MemberList:any[]=[];
   KeyMemberList:any[]=[];
@@ -78,7 +79,7 @@ export class MemberComponent implements OnInit {
   }
 
   getAllmember(mppIds:any){
-    console.log("mppIds",mppIds);
+   
     this.MemberList=[];
     this.filterMemberList=[];
     this.SharedService.openSppinerModel();
@@ -87,9 +88,10 @@ export class MemberComponent implements OnInit {
     this.memberService.getMemberAll(this.formData).subscribe((res:any)=>{  
       if(res.status==200){
         this.SharedService.closeSpinnerModel();
-        var listMember = res.result.Table5;
+        var listMember = res.result.Table;
         this.MemberList = listMember.filter((item:any) => {
-          return mppIds.some((data:any) => item.societyName === data);
+          return mppIds.some((data:any) =>item.Society_Code == data
+           );
       });
         this.KeyMemberList = Object.keys(listMember[0])
         this.filterMemberList = this.MemberList.slice();                                                                                                                                                                  
@@ -112,7 +114,6 @@ export class MemberComponent implements OnInit {
         if(res.status==200){
            this.SharedService.closeSpinnerModel();
           this.MppList = res.result.Table;
-          
           this.filterMppList = this.MppList.slice();
         }
         else{
@@ -151,7 +152,6 @@ export class MemberComponent implements OnInit {
         btnTxt:this.btnTxt
       }
     }).afterClosed().subscribe((data:any)=>{
-      console.log("bmc selected code",data)
       if(data!=undefined){
         this.SelectedmppCode = data;
         this.getAllmember(this.SelectedmppCode);
@@ -172,7 +172,9 @@ export class MemberComponent implements OnInit {
 
 
   onFileChange(evt: any) {
-    this.ExcelMppList = [];
+   
+
+    this.ExcelMemberList = [];
     this.Excelkeys = [];
     /* wire up file reader */
     const target: DataTransfer = <DataTransfer>(evt.target);
@@ -188,9 +190,10 @@ export class MemberComponent implements OnInit {
       const ws = wb.Sheets[wsname];
   
       /* save data */
-      this.ExcelMppList = XLSX.utils.sheet_to_json(ws, { header: 0 });
-      this.Excelkeys = Object.keys(this.ExcelMppList[0]);
-        this.UploadExcel(this.ExcelMppList);
+      this.ExcelMemberList = XLSX.utils.sheet_to_json(ws, { header: 0 });
+      this.Excelkeys = Object.keys(this.ExcelMemberList[0]);
+      console.log("upoad member list",this.ExcelMemberList)
+        this.UploadExcel(this.ExcelMemberList);
   
       
     };
@@ -199,83 +202,65 @@ export class MemberComponent implements OnInit {
   
   
   UploadExcel(data:any[]){
+   
     for(let i = 0; i<data.length; i++){
       const element = data[i];
-      this.UploadExcelMppList.push({
-        MPPCode:element.MPPCode,
-        MPPName : element.MPPName,
-        RouteCode : element.RouteCode,
-        CenterCode : element.CenterCode,
-        MobileNo  : element.MobileNo,
-        DistrictCode : element.DistrictCode,
-        SubDistrictCode : element.SubDistrictCode,
-        VillageId : element.VillageId,
-        HamletId : element.HamletId,
-        BankCode  : element.BankCode,
-        AccountNumber : element.AccountNumber,
-        ContactPerson : element.ContactPerson,
-        ContactNo : element.ContactNo,
-        PanNo : element.PanNo,
-        SecurityAmount : element.SecurityAmount,
-        PaymentMode : element.PaymentMode,
-        ReferenceNo : element.ReferenceNo,
-        AggrementNo : element.AggrementNo,
-        AggerementExpiryDate : element.AggerementExpiryDate,
-        SecurityChequeNo_1LakhRs  : element.SecurityChequeNo_1LakhRs,
-        SecurityChequeNo_100Rs : element.SecurityChequeNo_100Rs,
-        SapRtCode : element.SapRtCode,
-        SadaCan: element.SadaCan,
-        InstalltionDate : element.InstalltionDate,
-        StartDate  : element.StartDate,
-        EndDate : element.EndDate,
-        AdharNo : element.AdharNo,
-        AgentName : element.AgentName,
-        SapPlantCode : element.SapPlantCode,
-        BankBranchName : element.BankBranchName,
-        IFSC  : element.IFSC,
-        AccountName  : element.AccountName,
-        ExCodeofTahsilCode : element.ExCodeofTahsilCode,
-        EffectiveDate : element.ExCodeofTahsilCode,
-        IsActive : element.IsActive,
-        EffectiveShift : element.EffectiveDate,
-       
+      this.UploadExcelMemberList.push({
+        FarmerCode :element.MemberCode,
+          FirstName :element.MemberName,
+          FatherName :element.FatherName,
+          Gender :element.Gender,
+         CenterCode :element.BMCCode,
+         SocietyCode :element.PPCode         ,
+         StateId :element.StateCode,
+         DistrictId :element.DistCode,
+         SubDistrictId :element.TahsilCode,
+         VillageId:element.VillageCode,
+         HamletId:element.HamletCode,
+          FormNumber :element.FORMNumber,
+          IsActive :element.IsActive, 
+          PhoneNumber :element.MobileNo,
+          ExpieryDate :new Date().getDate(),
+          ExpieryShift :'E',
       });
     }
 
-    console.log("this.excel data",this.UploadExcelMppList)
-   
+    console.log("memer excel upload",this.UploadExcelMemberList)
+
+    
   }
 
 
-  // onSaveUploadedMpp(){
-  //  this.formData.Mpp_BO_SP = this.UploadExcelMppList;
-  //   this.formData.Company_Code =this.SessionService.getCurrentUser().value.CompanyCode;
-  //   this.formData.User_Code =this.SessionService.getCurrentUser().value.UserId;
-  //      this.formData.Action = "Import_MPP"
-  //    this.mppService.Uploadmpp(this.formData).subscribe((res:any)=>{
-  //      if(res.status==200){
-  //        if(res.result.Table[0].is_successful==1){
-  //          this.SharedService.openSnackBar(res.result.Table[0].message)
-  //        }
-  //        else{
-  //          this.SharedService.openSnackBar(res.result.Table[0].message)
-  //        }
-  //        }
-  //        else{
-  //          this.SharedService.openSnackBar(res.message)
+  onSaveUploadedMember(){
+   this.formData.FarmerUpload = this.UploadExcelMemberList;
+    // this.formData.Company_Code =this.SessionService.getCurrentUser().value.CompanyCode;
+    // this.formData.User_Id =this.SessionService.getCurrentUser().value.UserId;
+       this.formData.Action = "Import_Farmer"
+     this.memberService.UploadMember(this.formData).subscribe((res:any)=>{
+       if(res.status==200){
+        console.log("uploaded member",res);
+         if(res.result.Table[0].is_successful==1){
+           this.SharedService.openSnackBar(res.result.Table[0].message)
+         }
+         else{
+           this.SharedService.openSnackBar(res.result.Table[0].message)
+         }
+         }
+         else{
+           this.SharedService.openSnackBar(res.message)
            
-  //        }
+         }
         
        
-  //    })
-  //  }
+     })
+   }
   
   
   
   
   resetExcel(){
     this.inputName.nativeElement.value = '';
-    this.ExcelMppList = [];
+    this.ExcelMemberList = [];
     this.Excelkeys = [];
         
   }
@@ -292,7 +277,7 @@ export class MemberComponent implements OnInit {
    this.formData.Last_Name  = "";
    this.formData.Middle_Name  = "";
    this.formData.Gender= "";
-   this.formData.Birth_ = "";
+   this.formData.Birth_Date = new Date();
    this.formData.Caste = "";
    this.formData.MCC_Id  = 0;
    this.formData.Plant_Id  = 0;
@@ -320,7 +305,7 @@ export class MemberComponent implements OnInit {
    this.formData.Adhar_Number  = "";
    this.formData.User_Id  = 0;
    this.formData.Is_Active  = 0;
-   this.formData.Expiry_  =new Date();
+   this.formData.Expiry_Date  =new Date();
    this.formData.Expiry_Shift  =new Date();
    this.formData.Center_Code  = 0;
    this.formData.Route_Code  = 0;
@@ -361,14 +346,14 @@ export class MemberComponent implements OnInit {
    this.formData.Depositor_Bank_Name  = "";
    this.formData.Depositor_Branch_Name  = "";
    this.formData.DD_No  = "";
-   this.formData.Transaction_ = "";
+   this.formData.Transaction_Date = new Date();
    this.formData.Payment_Mode  = "";
-   this.formData.Wef_ = "";
+   this.formData.Wef_Date = new Date();
    this.formData.Unique_Member_Code  = "";
    this.formData.Member_Type  = "";
    this.formData.Approval_Status  = "";
    this.formData.Accepted_By  = "";
-   this.formData.Approval_  = "";
+   this.formData.Approval_Date  = new Date();
    this.formData.Age  = 0;
    this.formData.IMEI_No  = "";
    this.formData.SIM_No  = "";
@@ -377,10 +362,24 @@ export class MemberComponent implements OnInit {
   }
 
   onEditUser(e:any){
-  this.btnTxt = "Update";
-  this.formData = e;
-  this.formData.Is_Active = e.IsActive
-  this.formData.Other_Code = e.Society_other_Code;
+    console.log("edit member",e)
+    this.btnTxt = "Update";
+    this.formData = e
+// this.formData.Center_Code = e.bmcId
+// this.formData.Expiry_Date = e.expiryDate
+// this.formData.Farmer_Code = e.farmerCode
+// this.formData.Farmer_Id = e.farmerId
+// this.formData.First_Name = e.farmerName
+// this.formData.Gender = e.gender
+// this.formData.Is_Active = e.isActive
+// this.formData.MCC_Id = e.mccId
+// this.formData.Other_Code = e.otherCode
+// this.formData.Phone_Number = e.phoneNumber
+// this.formData.Plant_Id = e.plantId
+// this.formData.Route_Code = e.routeId
+// this.formData.Society_Code = e.societyId
+
+ 
   this.openDialog();
   }
 
