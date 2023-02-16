@@ -7,7 +7,7 @@ export class MemberModel{
  Last_Name :String = "";
  Middle_Name :String = "";
  Gender: String= "";
- Birth_:String = "";
+ Birth_Date:Date = new Date();
  Caste :String= "";
  MCC_Id :Number = 0;
  Plant_Id :Number = 0;
@@ -33,9 +33,9 @@ export class MemberModel{
  Pan_Number :String = "";
  Beneficiary_Name :String = "";
  Adhar_Number :String = "";
-     User_Id :Number = 0;
-    Is_Active :Number = 0;
- Expiry_:Date  =new Date();
+User_Id :Number = 0;
+Is_Active :Number = 0;
+ Expiry_Date:Date  =new Date();
  Expiry_Shift:Date  =new Date();
  Center_Code :Number = 0;
  Route_Code :Number = 0;
@@ -76,18 +76,18 @@ export class MemberModel{
  Depositor_Bank_Name :String = "";
  Depositor_Branch_Name :String = "";
  DD_No :String = "";
- Transaction_:String = "";
+ Transaction_Date:Date = new Date();
  Payment_Mode :String = "";
- Wef_:String = "";
+ Wef_Date:Date = new Date();
  Unique_Member_Code :String = "";
  Member_Type :String = "";
  Approval_Status :String = "";
  Accepted_By :String = "";
- Approval_ :String = "";
+ Approval_Date :Date = new Date();
  Age :Number = 0;
  IMEI_No :String = "";
  SIM_No :String = "";
  Mastercode :String = "";
-// Farmer_Master Farmer_Master ReadOnly;
+ FarmerUpload:any[]=[];
  defaultMilkType :String = "";
 }
