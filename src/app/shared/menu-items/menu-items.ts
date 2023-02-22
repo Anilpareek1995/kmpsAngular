@@ -296,13 +296,13 @@ const MENUITEMS = [
   },
 
   {
-    state: '',
+    state: 'rate',
     name: 'Rate',
     type: 'sub',
     icon: 'av_timer',
     children: [
       { state: '', name: 'Rate chart Import', type: 'link' },
-      { state: '', name: 'Rate Re-Calculation', type: 'link' },
+      { state: 'Rate-Recalculation', name: 'Rate Re-Calculation', type: 'link' },
     ],
   },
 

@@ -57,7 +57,7 @@ import { RouteDetailComponent } from './route-detail/route-detail.component';
     ContractorPopupComponent,
     MilkVehicleComponent,
     MilkVehiclePopupComponent,
-    RouteDetailComponent
+    RouteDetailComponent,
   ],
   imports: [
     CommonModule,

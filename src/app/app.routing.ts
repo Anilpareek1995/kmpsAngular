@@ -40,6 +40,12 @@ export const AppRoutes: Routes = [
         canActivate: [AfterLoginGuard],
         loadChildren: () => import('./masters/masters.module').then((m) => m.MastersModule),
       },
+
+      {
+        path: 'rate',
+        canActivate: [AfterLoginGuard],
+        loadChildren: () => import('./rate/rate.module').then((m) => m.RateModule),
+      },
       {
         path: 'user-management',
         
