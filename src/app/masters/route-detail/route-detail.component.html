@@ -1,0 +1,68 @@
+<div class="card">
+
+    <div class="card-body">
+  
+        <div class="row">
+
+            
+
+<div class="col-md-4">
+    <mat-form-field>
+        <mat-select [(ngModel)]="formData.Center_Code" multiple #Center_Code="ngModel" name="Center_Code"   placeholder="BMC">
+            <mat-select-filter [array]="BmcList" [placeholder]="'Filter'" [displayMember]="'Center_Name'" (filteredReturn)="filterBmcList =$event"></mat-select-filter>
+            <mat-option *ngFor="let item of filterBmcList" [value]="item.Center_Code">
+                {{item.Center_Name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<div class="col col-md-4">
+    <button (click)="getAllRoute(0)" class="btn btn-primary">Get</button>
+</div>
+
+<div class="col col-md-4 text-right">
+    <mat-icon style="color: navy;">add_circle</mat-icon>
+</div>
+
+     </div>
+
+
+     <div class="row">
+        <div class="col col-md-12">
+          <div>
+            <div class="table-responsive">
+              <table style="width: 100%;" class="table  table-bordered table-hover row-table hover table-lg">
+                <thead>
+                  <tr>
+                    <th style="text-transform:capitalize;">SNo.</th>
+                    <th style="text-transform:capitalize;">Route Contractor Name</th>
+                    <th style="text-transform:capitalize;">Route Name</th>
+                    <th style="text-transform:capitalize;">Vehical</th>
+                    <th style="text-transform:capitalize;">Othercode</th>
+                    <th style="text-transform:capitalize;" class="text-center">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let Data Of RouteCodeList| slice: (page-1) * pageSize : (page-1) * pageSize + pageSize;let i=index">
+                    <td>{{ pageSize *(page-1) + i+ 1}}</td>
+                        <td>{{Data.Route_Contractor_Name}}</td>
+                        <td>{{Data.Route_Name}}</td>
+                        <td>{{Data.Vehical}}</td>
+                        <td>{{Data.cnt_Othercode}}</td>
+                    <td><mat-icon  (click)="OpenPaymentDialog(Data)" style="color: navy;">edit</mat-icon>
+                      
+                    </td>
+  
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <ngb-pagination *ngIf="RouteCodeList.length>0" [collectionSize]="RouteCodeList.length" [(page)]="page"
+                [pageSize]="pageSize" class="d-flex justify-content-center"></ngb-pagination>
+          </div>
+        </div>
+      </div>
+</div>
+
+</div>

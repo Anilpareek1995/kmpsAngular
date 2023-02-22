@@ -22,6 +22,15 @@ import { SelectBmcForMppComponent } from './mpp/select-bmc-for-mpp/select-bmc-fo
 import { MemberComponent } from './member/member.component';
 import { MemberFilterPopupComponent } from './member/member-filter-popup/member-filter-popup.component';
 import { MemberPopupComponent } from './member/member-popup/member-popup.component';
+import { PaymentCycleComponent } from './payment-cycle/payment-cycle.component';
+import { PaymentCyclePopupComponent } from './payment-cycle/payment-cycle-popup/payment-cycle-popup.component';
+import { RouteTimingComponent } from './route-timing/route-timing.component';
+import { MatTimepickerModule } from 'mat-timepicker';
+import { ContractorComponent } from './contractor/contractor.component';
+import { ContractorPopupComponent } from './contractor/contractor-popup/contractor-popup.component';
+import { MilkVehicleComponent } from './milk-vehicle/milk-vehicle.component';
+import { MilkVehiclePopupComponent } from './milk-vehicle/milk-vehicle-popup/milk-vehicle-popup.component';
+import { RouteDetailComponent } from './route-detail/route-detail.component';
 
 
 
@@ -40,7 +49,15 @@ import { MemberPopupComponent } from './member/member-popup/member-popup.compone
     SelectBmcForMppComponent,
     MemberComponent,
     MemberFilterPopupComponent,
-    MemberPopupComponent
+    MemberPopupComponent,
+    PaymentCycleComponent,
+    PaymentCyclePopupComponent,
+    RouteTimingComponent,
+    ContractorComponent,
+    ContractorPopupComponent,
+    MilkVehicleComponent,
+    MilkVehiclePopupComponent,
+    RouteDetailComponent
   ],
   imports: [
     CommonModule,
@@ -54,6 +71,7 @@ import { MemberPopupComponent } from './member/member-popup/member-popup.compone
     ReactiveFormsModule,
     DataTablesModule,
     MatDatepickerModule,
+    MatTimepickerModule 
     
   ]
 })

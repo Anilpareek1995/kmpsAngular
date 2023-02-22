@@ -1,0 +1,93 @@
+<div class="container scroll">
+
+
+    <mat-card>
+        <form #form="ngForm">
+
+            <mat-card-header>
+                <mat-card-title>Add Contractor </mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <input [(ngModel)]="formData.Contractor_Name" #Contractor_Name="ngModel" name="Contractor_Name"  matInput placeholder="Contractor Name">
+                            <mat-hint>Hint</mat-hint>
+                          </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <input [(ngModel)]="formData.Contractor_Rate" #Contractor_Rate="ngModel" name="Contractor_Rate"  matInput placeholder="Contractor Rate">
+                            <mat-hint>Hint</mat-hint>
+                          </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <input [(ngModel)]="formData.Mobile_No" #Mobile_No="ngModel" name="Mobile_No" matInput placeholder="Phone No.">
+                            <mat-hint>Hint</mat-hint>
+                          </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <input [(ngModel)]="formData.Email_Id" #Email_Id="ngModel" name="Email_Id" matInput placeholder="Email">
+                            <mat-hint>Hint</mat-hint>
+                          </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <input  [(ngModel)]="formData.Address" #Address="ngModel" name="Address"  matInput placeholder="Address">
+                            <mat-hint>Hint</mat-hint>
+                          </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <input [(ngModel)]="formData.PinCode" #PinCode="ngModel" name="PinCode" matInput placeholder="PIN">
+                            <mat-hint>Hint</mat-hint>
+                          </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <input [(ngModel)]="formData.City" #City="ngModel" name="City" matInput placeholder="City">
+                            <mat-hint>Hint</mat-hint>
+                          </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <input [(ngModel)]="formData.State_Code" #State_Code="ngModel" name="State_Code" matInput placeholder="State">
+                            <mat-hint>Hint</mat-hint>
+                          </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <input [(ngModel)]="formData.Country_Code" #Country_Code="ngModel" name="Country_Code"  matInput placeholder="Country">
+                            <mat-hint>Hint</mat-hint>
+                          </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-md-3">
+                        <button (click)="onSave()" class=" btn btn-primary">{{btnTxt}}</button>
+                    </div>
+                    <div class="col col-md-3">
+                        <button (click)="close()" class=" btn btn-primary">Close</button>
+                    </div>
+                </div>
+
+            </mat-card-content>
+
+
+        </form>
+
+    </mat-card>
+
+</div>

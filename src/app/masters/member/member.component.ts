@@ -233,12 +233,11 @@ export class MemberComponent implements OnInit {
 
   onSaveUploadedMember(){
    this.formData.FarmerUpload = this.UploadExcelMemberList;
-    // this.formData.Company_Code =this.SessionService.getCurrentUser().value.CompanyCode;
-    // this.formData.User_Id =this.SessionService.getCurrentUser().value.UserId;
+    this.formData.Company_Code =this.SessionService.getCurrentUser().value.CompanyCode;
+    this.formData.User_Id =this.SessionService.getCurrentUser().value.UserId;
        this.formData.Action = "Import_Farmer"
      this.memberService.UploadMember(this.formData).subscribe((res:any)=>{
        if(res.status==200){
-        console.log("uploaded member",res);
          if(res.result.Table[0].is_successful==1){
            this.SharedService.openSnackBar(res.result.Table[0].message)
          }
@@ -295,7 +294,7 @@ export class MemberComponent implements OnInit {
    this.formData.Phone_Number  = "";
    this.formData.Farmer_Code  = "";
    this.formData.Other_Code  = "";
-   this.formData.    Bank_Code  = 0;
+   this.formData.Bank_Code  = 0;
    this.formData.Bank_Branch_Name  = "";
    this.formData.Account_Name  = "";
    this.formData.Ifsc_Code  = "";
@@ -365,19 +364,7 @@ export class MemberComponent implements OnInit {
     console.log("edit member",e)
     this.btnTxt = "Update";
     this.formData = e
-// this.formData.Center_Code = e.bmcId
-// this.formData.Expiry_Date = e.expiryDate
-// this.formData.Farmer_Code = e.farmerCode
-// this.formData.Farmer_Id = e.farmerId
-// this.formData.First_Name = e.farmerName
-// this.formData.Gender = e.gender
-// this.formData.Is_Active = e.isActive
-// this.formData.MCC_Id = e.mccId
-// this.formData.Other_Code = e.otherCode
-// this.formData.Phone_Number = e.phoneNumber
-// this.formData.Plant_Id = e.plantId
-// this.formData.Route_Code = e.routeId
-// this.formData.Society_Code = e.societyId
+
 
  
   this.openDialog();
