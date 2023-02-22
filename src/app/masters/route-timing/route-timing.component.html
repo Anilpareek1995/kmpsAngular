@@ -1,0 +1,106 @@
+<div class="card">
+
+    <div class="card-body">
+  
+        <div class="row">
+            <div class="col col-md-3">
+                <mat-form-field>
+                    <mat-select  [(ngModel)]="formData.Route_Code" #Route_Code="ngModel" name="Route_Code" placeholder="Route">
+                        <mat-select-filter [array]="routeList" [placeholder]="'Filter'" [displayMember]="'Route_Name'" (filteredReturn)="filterRouteList =$event"></mat-select-filter>
+                        <mat-option *ngFor="let item of filterRouteList" [value]="item.Route_Code">
+                            {{item.Route_Name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="col col-md-2">
+                <mat-form-field>
+                    <input [(ngModel)]="formData.Effective_Date"  #Effective_Date="ngModel" name="Effective_Date"  matInput [matDatepicker]="Effective_Date" placeholder="Effective Date">
+                    <mat-datepicker-toggle matSuffix [for]="Effective_Date"></mat-datepicker-toggle>
+                    <mat-datepicker  #Effective_Date></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <div class="col col-md-2">
+                <mat-form-field>
+                    <mat-label i18n="Timepicker 1 Title">Schedule Morning Time </mat-label>
+                    <input  matTimepicker #t1="matTimepicker" i18n-okLabel="Timepicker 1 Ok Label" 
+                    [(ngModel)]="formData.Scheduled_Morning_Time"  #Scheduled_Morning_Time="ngModel" name="Scheduled_Morning_Time" 
+                     okLabel="Ok"
+                      i18n-cancelLabel="Timepicker 1 Cancel Label" cancelLabel="Cancel" #time1="ngModel" 
+                       id="timepicker-example-1" mode="12h" ngModel placeholder="Please select time..."
+                      name="time-1" required>
+                    <mat-icon matSuffix (click)="t1.showDialog()">access_time</mat-icon>
+                    <mat-error *ngIf="time1.touched && time1.invalid">Invalid Date</mat-error>
+                  </mat-form-field>
+            </div>
+
+            <div class="col col-md-2">
+                <mat-form-field>
+                    <mat-label i18n="Timepicker 1 Title">Schedule Evening Time </mat-label>
+                    <input matTimepicker #t2="matTimepicker" i18n-okLabel="Timepicker 1 Ok Label" okLabel="Ok"
+                    [(ngModel)]="formData.Scheduled_Evening_Time"  #Scheduled_Evening_Time="ngModel" name="Scheduled_Evening_Time" 
+                      i18n-cancelLabel="Timepicker 1 Cancel Label" cancelLabel="Cancel" #time2="ngModel" 
+                       id="timepicker-example-11" mode="12h" ngModel placeholder="Please select time..."
+                      name="time-1" required>
+                    <mat-icon matSuffix (click)="t2.showDialog()">access_time</mat-icon>
+                    <mat-error *ngIf="time1.touched && time1.invalid">Invalid Date</mat-error>
+                  </mat-form-field>
+               
+            </div>
+
+            
+
+            <div class="col col-md-3 pt-3">
+                <button [disabled]="formData.Route_Code==0" (click)="addRouteTimimg()" class="btn btn-primary btn-sm">{{btnTxt}}</button>
+            </div>
+        </div>
+  
+  
+      <div class="row">
+        <div class="col col-md-12">
+          <div>
+            <div class="table-responsive">
+              <table style="width: 100%;" class="table  table-bordered table-hover row-table hover table-lg">
+                <thead>
+                  <tr>
+                    <th style="text-transform:capitalize;">SNo.</th>
+                    <th style="text-transform:capitalize;">Route Name</th>
+                    <th style="text-transform:capitalize;">Effective Date</th>
+                    <th style="text-transform:capitalize;">Sch. Morning Time</th>
+                    <th style="text-transform:capitalize;">Sch. Evening Time</th>
+                    <th style="text-transform:capitalize;" class="text-center">Action</th>
+                  </tr>
+                </thead>
+
+                
+                <tbody>
+                  <tr *ngFor="let Data Of RouteTimingList| slice: (page-1) * pageSize : (page-1) * pageSize + pageSize;let i=index">
+                    <td>{{ pageSize *(page-1) + i+ 1}}</td>
+                        <td>{{Data.Route_Name}}</td>
+                        <td>{{Data.Effective_Date}}</td>
+                        <td>{{Data.Scheduled_Morning_Time}}</td>
+                        <td>{{Data.Scheduled_Evening_Time}}</td>
+                    <td><mat-icon  (click)="onEdit(Data)" style="color: navy;">edit</mat-icon>
+                      
+                    </td>
+  
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <ngb-pagination *ngIf="RouteTimingList.length>0" [collectionSize]="RouteTimingList.length" [(page)]="page"
+                [pageSize]="pageSize" class="d-flex justify-content-center"></ngb-pagination>
+          </div>
+        </div>
+      </div>
+  
+  
+      
+  
+  
+  
+  
+    </div>
+  </div>

@@ -1,0 +1,69 @@
+<div class="container scroll">
+
+
+    <mat-card>
+        <form #form="ngForm">
+
+            <mat-card-header>
+                <mat-card-title>Add Milk Vehicle </mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <input [(ngModel)]="formData.Vehicle_Name" #Vehicle_Name="ngModel" name="Vehicle_Name"  matInput placeholder="Vehice Name">
+                            <mat-hint>Hint</mat-hint>
+                          </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <mat-select  [(ngModel)]="formData.Route_Contractor_Code" #Route_Contractor_Code="ngModel" name="Route_Contractor_Code" placeholder="Contractor">
+                                <mat-select-filter [array]="ContractorList" [placeholder]="'Filter'" [displayMember]="'Contractor_Name'" (filteredReturn)="filterContractorList =$event"></mat-select-filter>
+                                <mat-option *ngFor="let item of filterContractorList" [value]="item.Contractor_Code">
+                                    {{item.Contractor_Name}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <input [(ngModel)]="formData.Mobile_No" #Mobile_No="ngModel" name="Mobile_No"  matInput placeholder="Phone No.">
+                            <mat-hint>Hint</mat-hint>
+                          </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <input [(ngModel)]="formData.Type" #Type="ngModel" name="Type"  matInput placeholder="Type">
+                            <mat-hint>Hint</mat-hint>
+                          </mat-form-field>
+                    </div>
+
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <input [(ngModel)]="formData.Capacity" #Capacity="ngModel" name="Capacity"   matInput placeholder="Capacity">
+                            <mat-hint>Hint</mat-hint>
+                          </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col col-md-3">
+                        <button (click)="onSave()" class=" btn btn-primary">{{btnTxt}}</button>
+                    </div>
+                    <div class="col col-md-3">
+                        <button (click)="close()" class=" btn btn-primary">Close</button>
+                    </div>
+                </div>
+
+            </mat-card-content>
+
+
+        </form>
+
+    </mat-card>
+
+</div>

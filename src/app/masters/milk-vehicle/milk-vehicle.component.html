@@ -1,0 +1,70 @@
+<div class="card">
+
+    <div class="card-body">
+  
+        <div class="row">
+           
+
+            <div class="col-md-8">
+                <mat-form-field >
+                    <input   matInput placeholder="Form Number">
+                    <mat-hint>Hint</mat-hint>
+                  </mat-form-field>
+            </div>
+
+            <div class="col col-md-4 text-right pt-3">
+                
+                   <button (click)="openDialog()" class="btn btn-primary"><mat-icon  style="color: navy;">add</mat-icon></button> 
+                
+            </div>
+            
+
+        </div>
+  
+  
+      <div class="row">
+        <div class="col col-md-12">
+          <div>
+            <div class="table-responsive">
+              <table style="width: 100%;" class="table  table-bordered table-hover row-table hover table-lg">
+                <thead>
+                  <tr>
+                    <th style="text-transform:capitalize;">SNo.</th>
+                    <th style="text-transform:capitalize;">Vehicle Name</th>
+                    <th style="text-transform:capitalize;">Contractor Name</th>
+                    <th style="text-transform:capitalize;">Capacity</th>
+                    <th style="text-transform:capitalize;">Mobile No</th>
+                    <th style="text-transform:capitalize;" class="text-center">Action</th>
+                  </tr>
+                </thead>
+
+                
+                <tbody>
+                  <tr *ngFor="let Data Of milkTankerList| slice: (page-1) * pageSize : (page-1) * pageSize + pageSize;let i=index">
+                    <td>{{ pageSize *(page-1) + i+ 1}}</td>
+                        <td>{{Data.Vehicle_Name}}</td>
+                        <td>{{Data.Contractor_Name}}</td>
+                        <td>{{Data.Capacity}}</td>
+                        <td>{{Data.Mobile_No}}</td>
+                    <td><mat-icon  (click)="onEdit(Data)" style="color: navy;">edit</mat-icon>
+                      
+                    </td>
+  
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <ngb-pagination *ngIf="milkTankerList.length>0" [collectionSize]="milkTankerList.length" [(page)]="page"
+                [pageSize]="pageSize" class="d-flex justify-content-center"></ngb-pagination>
+          </div>
+        </div>
+      </div>
+  
+  
+      
+  
+  
+  
+  
+    </div>
+  </div>

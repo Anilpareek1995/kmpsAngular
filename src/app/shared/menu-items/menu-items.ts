@@ -281,17 +281,17 @@ const MENUITEMS = [
       { state: 'plant', name: 'Plant', type: 'link' },
       { state: 'mcc', name: 'MCC', type: 'link' },
       { state: 'bmc', name: 'BMC', type: 'link' },
-      { state: '', name: 'Route',  type:'subchild',
+      { state: 'route', name: 'Route',  type:'subchild',
       subchildren: [
-        { state: '', name: 'Contractor', type: 'link' },
-        { state: '', name: 'Milk Tanker',  type: 'link'},
-        { state: '', name: 'Route Details',  type: 'link'},
-        { state: '', name: 'Route Timing',  type: 'link'},
+        { state: 'contractor', name: 'Contractor', type: 'link' },
+        { state: 'milk-vehicle', name: 'Milk Tanker',  type: 'link'},
+        { state: 'route-detail', name: 'Route Details',  type: 'link'},
+        { state: 'route-timing', name: 'Route Timing',  type: 'link'},
       ]
     },
     { state: 'mpp', name: 'Mpp',  type:'link'},
     { state: 'member', name: 'Member',  type:'link'},
-    { state: '', name: 'Payment Cycle',  type:'link'},
+    { state: 'payment-cycle', name: 'Payment Cycle',  type:'link'},
     ],
   },
 
