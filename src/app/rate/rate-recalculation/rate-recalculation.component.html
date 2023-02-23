@@ -21,7 +21,7 @@
             </div>
             <div class="col col-md-2">
                 <mat-form-field>
-                    <input [(ngModel)]="formData.DateTo" #DateTo="ngModel" name="DateTo"  matInput [matDatepicker]="todate" placeholder="To Date">
+                    <input  [(ngModel)]="formData.DateTo" #DateTo="ngModel" name="DateTo" [max]="max"  matInput [matDatepicker]="todate" placeholder="To Date">
                     <mat-datepicker-toggle matSuffix [for]="todate"></mat-datepicker-toggle>
                     <mat-datepicker  #todate></mat-datepicker>
                 </mat-form-field>

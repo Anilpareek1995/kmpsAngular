@@ -17,6 +17,7 @@ export class RateRecalculationComponent implements OnInit {
   filterbmclist:any[]=[];
   pageSize = 5;
   page = 1;
+  max=new Date()
    constructor(private rateservice:RatereCalculationService,
     private SessionService:SessionService,
     private SharedService:SharedService,
