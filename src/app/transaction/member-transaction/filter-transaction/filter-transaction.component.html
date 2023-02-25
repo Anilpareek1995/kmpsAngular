@@ -1,0 +1,114 @@
+<div class="container">
+
+
+    <mat-card>
+        <div class="row">
+            <div class="col-sm-10">
+                <mat-card-header>
+                <mat-card-title>Search Member Transaction</mat-card-title>
+            </mat-card-header>
+            </div>
+                    <div class="col-sm-2 text-right">
+                        <mat-icon (click)="closeWithOutData()"  style="color: navy;">close</mat-icon>
+                    </div>
+            </div>
+         
+       
+        <form #form="ngForm">
+        <mat-card-content class="scroll">
+            <div class="row">
+
+
+                <div class="col-md-4">
+                    <mat-form-field>
+                        <mat-select [(ngModel)]="formData.Plant_Id" #Plant_Id="ngModel" name="Plant_Id" (selectionChange)="getAllMcc($event)"  placeholder="Plant">
+                            <mat-select-filter [array]="PlantList" [placeholder]="'Filter'" [displayMember]="'Plant_Name'" (filteredReturn)="filterPlantList =$event"></mat-select-filter>
+                            <mat-option *ngFor="let item of filterPlantList" [value]="item.Plant_Id">
+                                {{item.Plant_Name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-4">
+                    <mat-form-field>
+                        <mat-select [(ngModel)]="formData.MCC_Id" #MCC_Id="ngModel" name="MCC_Id" (selectionChange)="getBmcAll($event)"  placeholder="MCC">
+                            <mat-select-filter [array]="MccList" [placeholder]="'Filter'" [displayMember]="'MCC_Name'" (filteredReturn)="filterMccList =$event"></mat-select-filter>
+                            <mat-option *ngFor="let item of filterMccList" [value]="item.MCC_Id">
+                                {{item.MCC_Name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-4">
+                    <mat-form-field>
+                        <mat-select [(ngModel)]="formData.Center_Code" #Center_Code="ngModel" name="Center_Code" (selectionChange)="getAllRoute($event)"   placeholder="BMC">
+                            <mat-select-filter [array]="BmcList" [placeholder]="'Filter'" [displayMember]="'Center_Name'" (filteredReturn)="filterBmcList =$event"></mat-select-filter>
+                            <mat-option *ngFor="let item of filterBmcList" [value]="item.Center_Code">
+                                {{item.Center_Name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-4">
+                    <mat-form-field>
+                        <mat-select [(ngModel)]="formData.Route_Code" #Route_Code="ngModel" name="Route_Code"  (selectionChange)="getMppAll($event)"   placeholder="Route">
+                            <mat-select-filter [array]="RouteCodeList" [placeholder]="'Filter'" [displayMember]="'Route_Name'" (filteredReturn)="filterRouteCodeList =$event"></mat-select-filter>
+                            <mat-option *ngFor="let item of filterRouteCodeList" [value]="item.Route_Code">
+                                {{item.Route_Name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+
+                <div class="col-md-4">
+                    <mat-form-field>
+                        <mat-select [(ngModel)]="formData.Society_Code" #Society_Code="ngModel" name="Society_Code" (selectionChange)="onMppselect($event)"  placeholder="Mpp">
+                            <mat-select-filter [array]="MppList" [placeholder]="'Filter'" [displayMember]="'Society_Name'" (filteredReturn)="filterMppList =$event"></mat-select-filter>
+                            <mat-option *ngFor="let item of filterMppList" [value]="item.Society_Code">
+                                {{item.Society_Name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col col-md-4">
+                    <mat-form-field>
+                        <input [(ngModel)]="formData.Dump_Date" #Dump_Date="ngModel" name="Dump_Date"  matInput [matDatepicker]="Dump_Date1" placeholder="Date">
+                        <mat-datepicker-toggle matSuffix [for]="Dump_Date1"></mat-datepicker-toggle>
+                        <mat-datepicker  #Dump_Date1></mat-datepicker>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-4">
+                    <mat-form-field>
+                        <mat-select [(ngModel)]="formData.shift" #shift="ngModel" name="shift"  placeholder="Shift">
+                            <mat-option  value="M">
+                               Morning
+                            </mat-option>
+                            <mat-option  value="E">
+                                Evening
+                             </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col col-md-2 text-left pt-3" *ngIf="getformValidate">
+                    <mat-icon (click)="OpenMemberAddDialog()" style="color: navy;">add_circle</mat-icon>
+                </div>
+
+
+             </div>
+
+            
+          </mat-card-content>
+        </form>
+
+        <mat-card-actions align="end">
+      <button (click)="close()"  mat-button>Cancle</button>
+          <button (click)="OnSave()"  mat-button>Save</button> 
+        </mat-card-actions>
+      </mat-card>
+</div>

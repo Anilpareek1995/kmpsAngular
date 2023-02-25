@@ -1,0 +1,41 @@
+<div class="container">
+
+
+    <mat-card>
+        <div class="row">
+            <div class="col-sm-10">
+                <mat-card-header>
+                <mat-card-title>Add Member Collection </mat-card-title>
+                </mat-card-header>
+            </div>
+                    <div class="col-sm-2 text-right">
+                        <mat-icon   style="color: navy;">close</mat-icon>
+                    </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-sm-6 text-right">
+            <h4><strong>Effective Date:</strong>{{formData.Dump_Date| date: 'dd MMM yyyy'}}</h4>
+            </div>
+
+            <div class="col-sm-6 text-right">
+            <h4><strong>Effective shift:</strong>{{formData.shift=="E"?"Evening":"Morning"}}</h4>
+            </div>
+         
+       </div>
+        <form #form="ngForm">
+        <mat-card-content class="scroll">
+            <div class="row">
+                
+             </div>
+
+            
+          </mat-card-content>
+        </form>
+
+        <mat-card-actions align="end">
+      <button   mat-button>Cancle</button>
+          <button   mat-button>Save</button> 
+        </mat-card-actions>
+      </mat-card>
+</div>

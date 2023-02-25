@@ -51,11 +51,11 @@ export const AppRoutes: Routes = [
         
         loadChildren: () => import('./user-management/user-management.module').then((m) => m.UserManagementModule),
       },
-      // {
-      //   path: 'freight',
-      //   canActivate:[AfterLoginGuard],
-      //   loadChildren: () => import('./frate-memo/frate-memo.module').then((m) => m.FrateMemoModule),
-      // },
+      {
+        path: 'transaction',
+        canActivate:[AfterLoginGuard],
+        loadChildren: () => import('./transaction/transaction.module').then((m) => m.TransactionModule),
+      },
       //{
       //   path: 'FreightPayment',
       //   canActivate: [AfterLoginGuard],
