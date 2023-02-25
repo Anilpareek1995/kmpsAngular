@@ -115,8 +115,12 @@ const routes: Routes = [
             title: 'Milk Vehicle',
             urls: [{ title: 'Route', url: '/milk-vehicle' }, { title: 'New Milk Vehicle' }],
           },
-        }  ] 
+        } , 
+         ] 
       },
+
+
+    
     ],
     canActivate:[AfterLoginGuard],
   },
