@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { MatDialog } from '@angular/material/dialog';
 import { PaymentCycleModel } from 'src/app/models/PaymentCycleModel';
 import { PaymentCycleService } from 'src/app/services/payment-cycle.service';
@@ -70,4 +71,10 @@ export class PaymentCycleComponent implements OnInit {
       }
     })
    }
+
+   onYearSelected(event: MatDatepickerInputEvent<Date>) {
+    const year = event.value ? event.value.getFullYear() : null;
+  const input = event.target as unknown as HTMLInputElement;
+  input.value = year ? year.toString() : '';
+  }
 }

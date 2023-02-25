@@ -31,6 +31,7 @@ import { ContractorPopupComponent } from './contractor/contractor-popup/contract
 import { MilkVehicleComponent } from './milk-vehicle/milk-vehicle.component';
 import { MilkVehiclePopupComponent } from './milk-vehicle/milk-vehicle-popup/milk-vehicle-popup.component';
 import { RouteDetailComponent } from './route-detail/route-detail.component';
+import { RoutePopupComponent } from './route-detail/route-popup/route-popup.component';
 
 
 
@@ -57,7 +58,8 @@ import { RouteDetailComponent } from './route-detail/route-detail.component';
     ContractorPopupComponent,
     MilkVehicleComponent,
     MilkVehiclePopupComponent,
-    RouteDetailComponent
+    RouteDetailComponent,
+    RoutePopupComponent
   ],
   imports: [
     CommonModule,

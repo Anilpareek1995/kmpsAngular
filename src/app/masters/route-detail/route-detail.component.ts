@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { RouteModel } from 'src/app/models/RouteModel';
 import { BmcService } from 'src/app/services/bmc.service';
 import { RouteService } from 'src/app/services/route.service';
 import { SessionService } from 'src/app/services/session.service';
 import { SharedService } from 'src/app/services/shared.service';
+import { RoutePopupComponent } from './route-popup/route-popup.component';
 
 @Component({
   selector: 'app-route-detail',
@@ -23,7 +25,8 @@ page = 1;
   private sharedService:SharedService,
   private SessionService:SessionService,
   private RouteService:RouteService,
-  private BmcService:BmcService){
+  private BmcService:BmcService,
+  private dialog: MatDialog,){
   }
   ngOnInit(): void {
     this.getBmcAll();
@@ -62,6 +65,19 @@ page = 1;
         this.sharedService.openSnackBar("No Data found");
       }
     })
+    }
+
+    OpenRouteDialog(): void {
+      
+      this.dialog.open(RoutePopupComponent, {
+        data:{
+          formData:this.formData,
+        }
+      }).afterClosed().subscribe((data:any)=>{
+        if(data!=undefined){
+        }
+        
+      });
     }
 
 }
