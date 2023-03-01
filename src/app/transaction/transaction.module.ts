@@ -13,13 +13,17 @@ import { DataTablesModule } from 'angular-datatables';
 import { MatTimepickerModule } from 'mat-timepicker';
 import { SharedMaterialModule } from '../shared-material-module';
 import { SharedModule } from '../shared/shared.module';
+import { TruckArrivalComponent } from './truck-arrival/truck-arrival.component';
+import { TruckArrivalPopupComponent } from './truck-arrival/truck-arrival-popup/truck-arrival-popup.component';
 
 
 @NgModule({
   declarations: [
     MemberTransactionComponent,
     FilterTransactionComponent,
-    MemberAddTransPopupComponent
+    MemberAddTransPopupComponent,
+    TruckArrivalComponent,
+    TruckArrivalPopupComponent
   ],
   imports: [
     CommonModule,

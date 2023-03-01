@@ -1,0 +1,46 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title"></div>
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field>
+                    <mat-select [(ngModel)]="formData.Center_Code" #Center_Code="ngModel" name="Center_Code" (selectionChange)="getAllRoute($event)"   placeholder="BMC">
+                        <mat-select-filter [array]="BmcList" [placeholder]="'Filter'" [displayMember]="'Center_Name'" (filteredReturn)="filterBmcList =$event"></mat-select-filter>
+                        <mat-option *ngFor="let item of filterBmcList" [value]="item.Center_Code">
+                            {{item.Center_Name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            
+            <div class="col-md-4">
+                <mat-form-field>
+                    <mat-select [(ngModel)]="formData.Route_Code" #Route_Code="ngModel" name="Route_Code"     placeholder="Route">
+                        <mat-select-filter [array]="RouteCodeList" [placeholder]="'Filter'" [displayMember]="'Route_Name'" (filteredReturn)="filterRouteCodeList =$event"></mat-select-filter>
+                        <mat-option *ngFor="let item of filterRouteCodeList" [value]="item.Route_Code">
+                            {{item.Route_Name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-4">
+                <mat-form-field>
+                    <mat-select [(ngModel)]="formData.Shift" (selectionChange)="OnselectShift()" #Shift="ngModel" name="Shift"  placeholder="shift">
+                        <mat-option value="M">
+                            Morning
+                        </mat-option>
+                        <mat-option value="E">
+                            Evening
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -8,25 +8,128 @@
                 <mat-card-title>Add Member Collection </mat-card-title>
                 </mat-card-header>
             </div>
+
+            
                     <div class="col-sm-2 text-right">
                         <mat-icon   style="color: navy;">close</mat-icon>
                     </div>
             
         </div>
-        <div class="row">
-            <div class="col-sm-6 text-right">
-            <h4><strong>Effective Date:</strong>{{formData.Dump_Date| date: 'dd MMM yyyy'}}</h4>
-            </div>
 
-            <div class="col-sm-6 text-right">
-            <h4><strong>Effective shift:</strong>{{formData.shift=="E"?"Evening":"Morning"}}</h4>
-            </div>
-         
-       </div>
+
+       
+
+        
+       
         <form #form="ngForm">
         <mat-card-content class="scroll">
             <div class="row">
+                <div class="col-md-6">
+                    <h4>Effective Date: {{filterData.Dump_Date}}</h4>
+                    
+                </div>
+                <div class="col-md-6">
+                    <h4>Effective Shift: {{filterData.shift=="E"?"Evening":"Morning"}}</h4>
+                </div>
+            </div>
+            <div class="row">
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">Plant: {{filterData.Plant_Name}}</th>
+                        <th scope="col">Mcc: {{filterData.Mcc_Name}}</th>
+                        <th scope="col">Bmc: {{filterData.Bmc_Name}}</th>
+                        <th scope="col">Mpp: {{filterData.Mpp_Name}}</th>
+                        <th scope="col">Route: {{filterData.Route_Name}}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        
+                       
+                      </tr>
+                     
+                      
+                    </tbody>
+                  </table>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3">
+                <mat-form-field>
+                    <mat-select [(ngModel)]="formData.Farmer_Id" #Farmer_Id="ngModel" name="Farmer_Id"   placeholder="Member">
+                        <mat-select-filter [array]="MemberList" [placeholder]="'Filter'" [displayMember]="'First_Name'" (filteredReturn)="filterMemberList =$event"></mat-select-filter>
+                        <mat-option *ngFor="let item of filterMemberList" [value]="item.Farmer_Id">
+                            {{item.First_Name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+              </div>
+
+                <div class="col-md-3">
+                    <mat-form-field>
+                        <input [(ngModel)]="formData.Sample_Id" #Sample_Id="ngModel" name="Sample_Id"   matInput placeholder="Sample">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                  <mat-form-field>
+                    <mat-select [(ngModel)]="formData.Type" #Type="ngModel" name="Type"   placeholder="Type">
+                        <mat-option value="select">
+                           Select
+                        </mat-option>
+                        <mat-option value="C">
+                          C
+                       </mat-option>
+
+                       <mat-option value="B">
+                        B
+                     </mat-option>
+
+                     <mat-option value="M">
+                      M
+                   </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field>
+                        <input [(ngModel)]="formData.Weight" #Weight="ngModel" name="Weight"   matInput placeholder="Qty">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
                 
+
+                <div class="col-md-3">
+                    <mat-form-field>
+                        <input [(ngModel)]="formData.Fat" #Fat="ngModel" name="Fat"  matInput placeholder="Fat">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field>
+                        <input [(ngModel)]="formData.Snf" #Snf="ngModel" name="Snf"   matInput placeholder="SNF">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field>
+                        <input [(ngModel)]="formData.Rtpl" #Rtpl="ngModel" name="Rtpl"  matInput placeholder="Rate">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                  <mat-form-field>
+                      <input [(ngModel)]="formData.TotalAmount" #TotalAmount="ngModel" name="TotalAmount"  matInput placeholder="Amount">
+                      <mat-hint>Hint</mat-hint>
+                    </mat-form-field>
+              </div>
              </div>
 
             
@@ -34,8 +137,8 @@
         </form>
 
         <mat-card-actions align="end">
-      <button   mat-button>Cancle</button>
-          <button   mat-button>Save</button> 
+      <button  (click)="close()" mat-button>Cancle</button>
+          <button (click)="SaveMemberTransaction()"   mat-button>Save</button> 
         </mat-card-actions>
       </mat-card>
 </div>
