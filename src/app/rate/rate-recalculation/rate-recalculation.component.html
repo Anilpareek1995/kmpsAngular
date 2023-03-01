@@ -1,0 +1,65 @@
+<div class="card">
+
+    <div class="card-body">
+  
+        <div class="row">
+            <div class="col col-md-2">
+                <mat-form-field>
+                    <input [max]="formData.DateTo" [(ngModel)]="formData.DateFrom" #DateFrom="ngModel" name="DateFrom" matInput [matDatepicker]="Fromdate" placeholder="From Date">
+                    <mat-datepicker-toggle matSuffix [for]="Fromdate"></mat-datepicker-toggle>
+                    <mat-datepicker  #Fromdate></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="col-md-2">
+                <mat-form-field>
+                <mat-select [(ngModel)]="formData.FromShift" #FromShift="ngModel" name="FromShift"  placeholder="From Shift">
+                    <mat-option  [value]="0">Select</mat-option>
+                    <mat-option  [value]="1"> M</mat-option>
+                    <mat-option  [value]="2">E</mat-option>
+                 </mat-select>
+            </mat-form-field>
+            </div>
+            <div class="col col-md-2">
+                <mat-form-field>
+                    <input  [(ngModel)]="formData.DateTo" #DateTo="ngModel" name="DateTo" [max]="max"  matInput [matDatepicker]="todate" placeholder="To Date">
+                    <mat-datepicker-toggle matSuffix [for]="todate"></mat-datepicker-toggle>
+                    <mat-datepicker  #todate></mat-datepicker>
+                </mat-form-field>
+            </div>
+           
+            <div class="col-md-2">
+                <mat-form-field>
+                <mat-select [(ngModel)]="formData.ToShift" #ToShift="ngModel" name="ToShift" placeholder="To Shift">
+                    <mat-option  [value]="0">Select</mat-option>
+                    <mat-option  [value]="1"> M</mat-option>
+                    <mat-option  [value]="2">E</mat-option>
+                 </mat-select>
+            </mat-form-field>
+
+            </div>
+            <div class="col-md-2">
+                <mat-form-field>
+                    <mat-select  placeholder="Bmc">
+                        <mat-select-filter [array]="bmclist" [placeholder]="'Filter'" [displayMember]="'Center_Name'" (filteredReturn)="filterbmclist =$event"></mat-select-filter>
+                        <mat-option *ngFor="let item of filterbmclist" [value]="item.Center_Code">
+                            {{item.Center_Name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col col-md-2 pt-3">
+                <button (click)="Recalculate()" class="btn btn-primary btn-sm">Recalculate</button>
+            </div>
+            
+  </div>
+  
+     
+  
+  
+      
+  
+  
+  
+  
+    </div>
+  </div>
