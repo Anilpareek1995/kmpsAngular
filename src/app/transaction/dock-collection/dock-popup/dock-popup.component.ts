@@ -1,6 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { RouteModel } from 'src/app/models/RouteModel';
 import { TruckarrivalModel } from 'src/app/models/TruckArrivalModel';
 import { BmcService } from 'src/app/services/bmc.service';
@@ -10,11 +9,11 @@ import { SharedService } from 'src/app/services/shared.service';
 import { TruckArrivalService } from 'src/app/services/truck-arrival.service';
 
 @Component({
-  selector: 'app-truck-arrival-popup',
-  templateUrl: './truck-arrival-popup.component.html',
-  styleUrls: ['./truck-arrival-popup.component.scss']
+  selector: 'app-dock-popup',
+  templateUrl: './dock-popup.component.html',
+  styleUrls: ['./dock-popup.component.scss']
 })
-export class TruckArrivalPopupComponent implements OnInit {
+export class DockPopupComponent implements OnInit {
   RouteCodeList :any[]= [];
   filterRouteCodeList:any[] = [];
   BmcList:any[]=[];
@@ -22,7 +21,7 @@ export class TruckArrivalPopupComponent implements OnInit {
   RouteData = new RouteModel();
   formData = new TruckarrivalModel()
   constructor(@Inject(MAT_DIALOG_DATA) private data: any,
-  public dialogRef: MatDialogRef<TruckArrivalPopupComponent>,
+  public dialogRef: MatDialogRef<DockPopupComponent>,
   private SessionService:SessionService,
    private SharedService:SharedService,
 private truckArrivalService:TruckArrivalService,
@@ -102,6 +101,7 @@ private BmcService:BmcService)
       this.dialogRef.close(this.formData);
     }
 }
+
 
 
 

@@ -29,31 +29,42 @@
                 <thead>
                   <tr>
                     <th style="text-transform:capitalize;">SNo.</th>
-                    <th style="text-transform:capitalize;">year Code</th>
-                    <th style="text-transform:capitalize;">Start Date</th>
-                    <th style="text-transform:capitalize;">End Date</th>
-                    <th style="text-transform:capitalize;">Description</th>
+                    <th style="text-transform:capitalize;">Arrival_Delay</th>
+                    <th style="text-transform:capitalize;">Arrival_Time</th>
+                    <th style="text-transform:capitalize;">Dump_Date</th>
+                    <th style="text-transform:capitalize;">Route_Name</th>
+                    <th style="text-transform:capitalize;">Shift</th>
+                    <th style="text-transform:capitalize;">Truck_No</th>
+                    <th style="text-transform:capitalize;">Schedule_Time</th>
+                    
                     <th style="text-transform:capitalize;" class="text-center">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- <tr *ngFor="let Data Of yearPaymentist| slice: (page-1) * pageSize : (page-1) * pageSize + pageSize;let i=index">
+
+
+                                  <tr *ngFor="let Data Of DockList| slice: (page-1) * pageSize : (page-1) * pageSize + pageSize;let i=index">
                     <td>{{ pageSize *(page-1) + i+ 1}}</td>
-                        <td>{{Data.YearCode}}</td>
-                        <td>{{Data.StartDate}}</td>
-                        <td>{{Data.EndDate}}</td>
-                        <td>{{Data.Desc}}</td>
-                    <td><mat-icon  (click)="OpenPaymentDialog(Data)" style="color: navy;">add</mat-icon>
+                    <td>{{Data.Arrival_Delay}}</td>
+<td>{{Data.Arrival_Time}}</td>
+<td>{{Data.Dump_Date}}</td>
+<td>{{Data.Route_Name}}</td>
+<td>{{Data.Shift}}</td>
+<td>{{Data.Truck_No}}</td>
+<td>{{Data.Schedule_Time}}</td>
+                    <td><mat-icon style="color: navy;">add</mat-icon>
                       
                     </td>
   
-                  </tr> -->
+                  </tr>
                 </tbody>
               </table>
             </div>
-            <!-- <ngb-pagination *ngIf="yearPaymentist.length>0" [collectionSize]="yearPaymentist.length" [(page)]="page"
-                [pageSize]="pageSize" class="d-flex justify-content-center"></ngb-pagination> -->
-          </div>
+            <ngb-pagination *ngIf="DockList.length>0" [collectionSize]="DockList.length" [(page)]="page"
+                [pageSize]="pageSize" [maxSize]="5" class="d-flex justify-content-center"></ngb-pagination>
+          
+                
+              </div>
         </div>
       </div>
   

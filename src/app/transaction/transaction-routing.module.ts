@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AfterLoginGuard } from '../guards/after-login.guard';
+import { DockCollectionComponent } from './dock-collection/dock-collection.component';
 import { MemberTransactionComponent } from './member-transaction/member-transaction.component';
 import { TruckArrivalComponent } from './truck-arrival/truck-arrival.component';
 
@@ -27,6 +28,16 @@ const routes: Routes = [
         data: {
           title: 'Truck Arrival',
           urls: [{ title: 'Transaction', url: '/truck-arrival' }, { title: 'New Truck Arrival' }],
+        },
+        
+      },
+
+      {
+        path:'dock-collection',
+        component: DockCollectionComponent,
+        data: {
+          title: 'Dock Collection',
+          urls: [{ title: 'Dock Collection', url: '/dock-collection' }, { title: 'New Dock Collection' }],
         },
         
       },

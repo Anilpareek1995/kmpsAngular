@@ -14,6 +14,8 @@ import { TruckArrivalPopupComponent } from './truck-arrival-popup/truck-arrival-
 })
 export class TruckArrivalComponent implements OnInit {
 DockList:any[]=[];
+pageSize = 5;
+page = 1;
 formData = new TruckarrivalModel();
   constructor(private sessionService:SessionService,
     private truckArrivalService:TruckArrivalService,
