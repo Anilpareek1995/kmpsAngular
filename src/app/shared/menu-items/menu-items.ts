@@ -307,16 +307,16 @@ const MENUITEMS = [
   },
 
   {
-    state: '',
+    state: 'transaction',
     name: 'Transaction',
     type: 'sub',
     icon: 'av_timer',
     children: [
-       { state: '', name: 'Member Transaction', type: 'link' },
-      { state: '', name: 'Actual Transaction',  type:'subchild',
+       { state: 'Member-collection', name: 'Member Transaction', type: 'link' },
+      { state: 'Actual-transaction', name: 'Actual Transaction',  type:'subchild',
       subchildren: [
-        { state: '', name: 'Truck Arrival', type: 'link' },
-        { state: '', name: 'Dock Collection',  type: 'link'},
+        { state: 'truck-arrival', name: 'Truck Arrival', type: 'link' },
+        { state: 'dock-collection', name: 'Dock Collection',  type: 'link'},
         { state: '', name: 'Lab Collection',  type: 'link'},
         { state: '', name: 'Dispatch Transaction',  type: 'link'},
         { state: '', name: 'Transaction approve',  type: 'link'}
