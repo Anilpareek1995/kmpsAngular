@@ -8,18 +8,26 @@ import { MemberAddTransPopupComponent } from './member-transaction/member-add-tr
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { RouterModule } from '@angular/router';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepickerModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DataTablesModule } from 'angular-datatables';
 import { MatTimepickerModule } from 'mat-timepicker';
 import { SharedMaterialModule } from '../shared-material-module';
 import { SharedModule } from '../shared/shared.module';
+import { TruckArrivalComponent } from './truck-arrival/truck-arrival.component';
+import { TruckArrivalPopupComponent } from './truck-arrival/truck-arrival-popup/truck-arrival-popup.component';
+import { DockCollectionComponent } from './dock-collection/dock-collection.component';
+import { DockPopupComponent } from './dock-collection/dock-popup/dock-popup.component';
 
 
 @NgModule({
   declarations: [
     MemberTransactionComponent,
     FilterTransactionComponent,
-    MemberAddTransPopupComponent
+    MemberAddTransPopupComponent,
+    TruckArrivalComponent,
+    TruckArrivalPopupComponent,
+    DockCollectionComponent,
+    DockPopupComponent
   ],
   imports: [
     CommonModule,
@@ -29,6 +37,7 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule,
     FormsModule,
     NgbModule,
+    NgbDatepickerModule,
     ReactiveFormsModule,
     ReactiveFormsModule,
     DataTablesModule,

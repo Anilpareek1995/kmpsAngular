@@ -30,7 +30,7 @@ export class FilterTransactionComponent implements OnInit {
     MCC_Id:0,
     Plant_Id:0,
     shift:"",
-    Dump_Date:'',
+    Dump_Date:new Date().toDateString(),
     Action:"",
     Company_Code:0,
     Mpp_Name:"",
@@ -80,7 +80,7 @@ export class FilterTransactionComponent implements OnInit {
   
     ngOnInit(): void {
      this.getAllPlant();
-
+   console.log("this.data.formData in filter",this.data.formData);
      this.formData = this.data.formData
     }
 

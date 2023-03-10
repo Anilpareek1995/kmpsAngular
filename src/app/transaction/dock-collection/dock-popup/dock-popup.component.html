@@ -1,0 +1,90 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title"></div>
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field>
+                    <mat-select [(ngModel)]="formData.Center_Code" #Center_Code="ngModel" name="Center_Code" (selectionChange)="getAllRoute($event)"   placeholder="BMC">
+                        <mat-select-filter [array]="BmcList" [placeholder]="'Filter'" [displayMember]="'Center_Name'" (filteredReturn)="filterBmcList =$event"></mat-select-filter>
+                        <mat-option *ngFor="let item of filterBmcList" [value]="item.Center_Code">
+                            {{item.Center_Name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            
+            <div class="col-md-4">
+                <mat-form-field>
+                    <mat-select [(ngModel)]="formData.Route_Code" #Route_Code="ngModel" name="Route_Code"     placeholder="Route">
+                        <mat-select-filter [array]="RouteCodeList" [placeholder]="'Filter'" [displayMember]="'Route_Name'" (filteredReturn)="filterRouteCodeList =$event"></mat-select-filter>
+                        <mat-option *ngFor="let item of filterRouteCodeList" [value]="item.Route_Code">
+                            {{item.Route_Name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-4">
+                <mat-form-field>
+                    <mat-select [(ngModel)]="formData.Shift"  #Shift="ngModel" name="Shift"  placeholder="shift">
+                        <mat-option value="M">
+                            Morning
+                        </mat-option>
+                        <mat-option value="E">
+                            Evening
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-3">
+                <mat-form-field>
+                    <input [(ngModel)]="formData.Route_Code" #Route_Code="ngModel" name="Route_Code"   matInput placeholder="BMC Duck">
+                    <mat-hint>Hint</mat-hint>
+                  </mat-form-field>
+            </div>
+
+            
+
+              <div class="col-md-3">
+                <mat-form-field>
+                    <input [(ngModel)]="formData.Truck_No" #Truck_No="ngModel" name="Truck_No"   matInput placeholder="Truck">
+                    <mat-hint>Hint</mat-hint>
+                  </mat-form-field>
+            </div>
+
+
+              <div class="col col-md-3">
+                <mat-form-field>
+                    <input [(ngModel)]="formData.Dump_Date" #Dump_Date="ngModel" name="Dump_Date"  matInput [matDatepicker]="Dump_Datearrival" placeholder="Date">
+                    <mat-datepicker-toggle matSuffix [for]="Dump_Datearrival"></mat-datepicker-toggle>
+                    <mat-datepicker  #Dump_Datearrival></mat-datepicker>
+                </mat-form-field>
+            </div>
+              <div class="col-md-3">
+                <ngb-timepicker [(ngModel)]="time" (ngModelChange)="onTimeChange($event)"></ngb-timepicker>
+                <!-- <ngb-timepicker [(ngModel)]="formData.Arrival_Time" #Arrival_Time="ngModel" name="Arrival_Time"  [meridian]="meridian"></ngb-timepicker> -->
+                
+                </div>
+        </div>
+
+       <div class="row">
+        <div class="col-sm-3">
+            <button (click)="OnSavtruckArrival()" class="btn btn-primary">Save</button>
+        </div>
+
+        <div class="col-sm-3">
+            <button (click)="OnselectShift()" class="btn btn-primary">Get</button>
+        </div>
+
+        <div class="col-sm-3">
+            <button class="btn btn-primary">Close</button>
+        </div>
+       </div> 
+    </div>
+</div>
+
+

@@ -22,9 +22,14 @@ export class MemberTransactionComponent implements OnInit {
     MCC_Id:0,
     Plant_Id:0,
     shift:"",
-    Dump_Date:'',
+    Dump_Date:new Date().toDateString(),
     Action:"",
-    Company_Code:0
+    Company_Code:0,
+    Mpp_Name:"",
+    Mcc_Name:"",
+    Route_Name:"",
+    Plant_Name:"",
+    Bmc_Name:""
   }
   RouteData = new RouteModel();
   RouteCodeList:any[] = [];
