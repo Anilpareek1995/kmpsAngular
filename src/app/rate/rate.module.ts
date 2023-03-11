@@ -8,18 +8,25 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DataTablesModule } from 'angular-datatables';
-import { MatTimepickerModule } from 'mat-timepicker';
+// import { MatTimepickerModule } from 'mat-timepicker';
 import { SharedMaterialModule } from '../shared-material-module';
 import { SharedModule } from '../shared/shared.module';
+import { RateImportComponent } from './rate-import/rate-import.component';
+import { RateImportPopupComponent } from './rate-import/rate-import-popup/rate-import-popup.component';
+import { CreateRateComponent } from './create-rate/create-rate.component';
 
 
 @NgModule({
   declarations: [
-    RateRecalculationComponent
+    RateRecalculationComponent,
+    RateImportComponent,
+    RateImportPopupComponent,
+    CreateRateComponent
   ],
   imports: [
     CommonModule,
-    RateRoutingModule,SharedMaterialModule,
+    RateRoutingModule,
+    SharedMaterialModule,
     RouterModule,
     SharedModule,
     FormsModule,
@@ -28,7 +35,7 @@ import { SharedModule } from '../shared/shared.module';
     ReactiveFormsModule,
     DataTablesModule,
     MatDatepickerModule,
-    MatTimepickerModule 
+    // MatTimepickerModule 
   ]
 })
 export class RateModule { }

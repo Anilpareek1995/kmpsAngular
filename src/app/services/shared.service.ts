@@ -16,6 +16,10 @@ export class SharedService {
   openSnackBar(message: string): void {
     this.snackBar.open(message, '', {
       duration: 2000,
+      panelClass: ['text-bg-success'],
+      verticalPosition: 'top',
+      horizontalPosition: 'center',
+     
     });
   }
 
