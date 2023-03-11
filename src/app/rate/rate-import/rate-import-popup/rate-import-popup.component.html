@@ -1,0 +1,56 @@
+<div class="container">
+
+        <mat-card>
+            <mat-card-header>
+              <mat-card-title>Add Rate</mat-card-title>
+            </mat-card-header>
+        <div class="row">
+            <div class="col col-md-4">
+                <mat-form-field>
+                    <input [max]="formData.Effective_Date" [(ngModel)]="formData.Effective_Date" #Effective_Date="ngModel" name="Effective_Date" matInput [matDatepicker]="Effective" placeholder="Effective Date" >
+                    <mat-datepicker-toggle matSuffix [for]="Effective"></mat-datepicker-toggle>
+                    <mat-datepicker  #Effective></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-4">
+                <mat-form-field>
+                    <mat-select [(ngModel)]="formData.Shift" #Shift="ngModel" name="Shift"
+                        placeholder="Effective Shift">
+                        <mat-option value="0">Select</mat-option>
+                        <mat-option value="M"> M</mat-option>
+                        <mat-option value="E">E</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field>
+                    <mat-label>Description</mat-label>
+                    <input [(ngModel)]="formData.Description" #Description="ngModel" name="Description" matInput
+                        placeholder="Description">
+                    <mat-hint>Hint</mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field>
+                    <mat-label>Buff Commission</mat-label>
+                    <input [(ngModel)]="formData.buffCommission" #buffCommission="ngModel" name="buffCommission"
+                        matInput placeholder="Buff">
+                    <mat-hint>Hint</mat-hint>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field>
+                    <mat-label>Cow Commission</mat-label>
+                    <input [(ngModel)]="formData.cowCommission" #cowCommission="ngModel" name="cowCommission" matInput
+                        placeholder="Cow">
+                    <mat-hint>Hint</mat-hint>
+                </mat-form-field>
+            </div>
+
+            <div class="col col-md-4 pt-3">
+                <button (click)="AddRate()" class="btn btn-primary btn-sm">Add Rate </button>
+            </div>
+        </div>
+    </mat-card>
+</div>
