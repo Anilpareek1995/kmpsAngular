@@ -152,15 +152,21 @@
                 </thead>
                 <tbody>
                   <tr
-                    *ngFor="let data of ExcelMppList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize;let i=index">
+                    *ngFor="let data of ExcelMemberList | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize;let i=index">
                     <td>{{ pageSize *(page-1) + i+ 1}}</td>
                     <td *ngFor="let key of Excelkeys" >{{data[key]}}</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <ngb-pagination *ngIf="ExcelMppList.length>0" [collectionSize]="ExcelMppList.length" [(page)]="page"
-              [pageSize]="pageSize" class="d-flex justify-content-center"></ngb-pagination>
+            <!-- <ngb-pagination [collectionSize]="70" [(page)]="page" [boundaryLinks]="true"></ngb-pagination> -->
+            <ngb-pagination *ngIf="UploadExcelMemberList.length>0"  [collectionSize]="UploadExcelMemberList.length" [(page)]="page"
+              [pageSize]="pageSize"
+              [maxSize]="5"
+	[rotate]="true"
+	[ellipses]="false"
+	[boundaryLinks]="true"
+              class="d-flex justify-content-center"></ngb-pagination>
           </div>
         </div>
       </div>
@@ -173,7 +179,7 @@
     <div class="card-footer">
       <div class="row">
         <div class="col col-md-3">
-          <button (click)="onSaveUploadedMpp()" class="btn btn-primary">Save</button>
+          <button (click)="onSaveUploadedMember()" class="btn btn-primary">Save</button>
         </div>
   
         <div class="col col-md-3">

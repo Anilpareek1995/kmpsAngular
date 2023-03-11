@@ -29,7 +29,7 @@
             <mat-form-field>
                 <mat-select placeholder="mpp" multiple (selectionChange)="onselectMpp($event)">
                     <mat-select-filter [array]="mppList"  [placeholder]="'Filter'" [displayMember]="'Society_Name'" (filteredReturn)="filterMppList =$event"></mat-select-filter>
-                    <mat-option *ngFor="let item of filterMppList" [value]="item.Society_Name">
+                    <mat-option *ngFor="let item of filterMppList" [value]="item.Society_Code">
                         {{item.Society_Name}}
                     </mat-option>
                 </mat-select>

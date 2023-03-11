@@ -12,4 +12,8 @@ export class MemberService {
   getMemberAll(data:any){
     return this.http.post(this.API_Url + 'member/All', data)
     }
+
+    UploadMember(data:any){
+      return this.http.post(this.API_Url + 'member/UploadMember', data)
+      }
 }

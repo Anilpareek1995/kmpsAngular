@@ -281,42 +281,42 @@ const MENUITEMS = [
       { state: 'plant', name: 'Plant', type: 'link' },
       { state: 'mcc', name: 'MCC', type: 'link' },
       { state: 'bmc', name: 'BMC', type: 'link' },
-      { state: '', name: 'Route',  type:'subchild',
+      { state: 'route', name: 'Route',  type:'subchild',
       subchildren: [
-        { state: '', name: 'Contractor', type: 'link' },
-        { state: '', name: 'Milk Tanker',  type: 'link'},
-        { state: '', name: 'Route Details',  type: 'link'},
-        { state: '', name: 'Route Timing',  type: 'link'},
+        { state: 'contractor', name: 'Contractor', type: 'link' },
+        { state: 'milk-vehicle', name: 'Milk Tanker',  type: 'link'},
+        { state: 'route-detail', name: 'Route Details',  type: 'link'},
+        { state: 'route-timing', name: 'Route Timing',  type: 'link'},
       ]
     },
     { state: 'mpp', name: 'Mpp',  type:'link'},
     { state: 'member', name: 'Member',  type:'link'},
-    { state: '', name: 'Payment Cycle',  type:'link'},
+    { state: 'payment-cycle', name: 'Payment Cycle',  type:'link'},
     ],
   },
 
   {
-    state: '',
+    state: 'rate',
     name: 'Rate',
     type: 'sub',
     icon: 'av_timer',
     children: [
       { state: '', name: 'Rate chart Import', type: 'link' },
-      { state: '', name: 'Rate Re-Calculation', type: 'link' },
+      { state: 'Rate-Recalculation', name: 'Rate Re-Calculation', type: 'link' },
     ],
   },
 
   {
-    state: '',
+    state: 'transaction',
     name: 'Transaction',
     type: 'sub',
     icon: 'av_timer',
     children: [
-       { state: '', name: 'Member Transaction', type: 'link' },
-      { state: '', name: 'Actual Transaction',  type:'subchild',
+       { state: 'Member-collection', name: 'Member Transaction', type: 'link' },
+      { state: 'Actual-transaction', name: 'Actual Transaction',  type:'subchild',
       subchildren: [
-        { state: '', name: 'Truck Arrival', type: 'link' },
-        { state: '', name: 'Dock Collection',  type: 'link'},
+        { state: 'truck-arrival', name: 'Truck Arrival', type: 'link' },
+        { state: 'dock-collection', name: 'Dock Collection',  type: 'link'},
         { state: '', name: 'Lab Collection',  type: 'link'},
         { state: '', name: 'Dispatch Transaction',  type: 'link'},
         { state: '', name: 'Transaction approve',  type: 'link'}

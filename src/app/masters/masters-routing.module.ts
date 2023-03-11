@@ -4,10 +4,15 @@ import { AfterLoginGuard } from '../guards/after-login.guard';
 import { UserComponent } from '../user-management/user/user.component';
 import { BmcComponent } from './bmc/bmc.component';
 import { CompanyComponent } from './company/company.component';
+import { ContractorComponent } from './contractor/contractor.component';
 import { MccComponent } from './mcc/mcc.component';
 import { MemberComponent } from './member/member.component';
+import { MilkVehicleComponent } from './milk-vehicle/milk-vehicle.component';
 import { MppComponent } from './mpp/mpp.component';
+import { PaymentCycleComponent } from './payment-cycle/payment-cycle.component';
 import { PlantComponent } from './plant/plant.component';
+import { RouteDetailComponent } from './route-detail/route-detail.component';
+import { RouteTimingComponent } from './route-timing/route-timing.component';
 
 const routes: Routes = [
   {
@@ -65,6 +70,57 @@ const routes: Routes = [
           urls: [{ title: 'Master', url: '/member' }, { title: 'New Member' }],
         },
       },
+
+      {
+        path: 'payment-cycle',
+        component: PaymentCycleComponent,
+        data: {
+          title: 'Payment Cycle',
+          urls: [{ title: 'Master', url: '/payment-cycle' }, { title: 'New Payment Cycle' }],
+        },
+      },
+
+      {
+        path: 'route',
+        children: [
+          {
+            path: 'route-detail',
+            component: RouteDetailComponent,
+            data: {
+              title: 'Route Detail',
+              urls: [{ title: 'Route', url: '/Route Detail' }, { title: 'New Route Detail' }],
+            },
+          } ,
+          
+          {
+          path: 'route-timing',
+          component: RouteTimingComponent,
+          data: {
+            title: 'Route Timing',
+            urls: [{ title: 'Route', url: '/route-timing' }, { title: 'New Route Timing' }],
+          },
+        } ,
+        {
+          path: 'contractor',
+          component: ContractorComponent,
+          data: {
+            title: 'Contractor',
+            urls: [{ title: 'Route', url: '/contractor' }, { title: 'New Contractor' }],
+          },
+        },
+        {
+          path: 'milk-vehicle',
+          component: MilkVehicleComponent,
+          data: {
+            title: 'Milk Vehicle',
+            urls: [{ title: 'Route', url: '/milk-vehicle' }, { title: 'New Milk Vehicle' }],
+          },
+        } , 
+         ] 
+      },
+
+
+    
     ],
     canActivate:[AfterLoginGuard],
   },

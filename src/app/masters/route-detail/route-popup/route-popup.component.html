@@ -1,0 +1,108 @@
+<div class="container">
+
+
+    <mat-card>
+        <mat-card-header>
+          <mat-card-title>Add Route Record</mat-card-title>
+        </mat-card-header>
+        <form #form="ngForm">
+        <mat-card-content class="scroll">
+            <div class="row">
+
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>Route Name</mat-label>
+                        <input [(ngModel)]="formData.Route_Name" #Route_Name="ngModel" name="Route_Name" matInput placeholder="Route Name">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>Route code</mat-label>
+                        <input [(ngModel)]="formData.Other_Code" #Other_Code="ngModel" name="Other_Code" matInput placeholder="Route Code">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field>
+                        <mat-select  [(ngModel)]="formData.vehicle_Code" #vehicle_Code="ngModel" name="vehicle_Code" placeholder="Vehicle">
+                            <mat-select-filter [array]="VehicleList" [placeholder]="'Filter'" [displayMember]="'Vehicle_Name'" (filteredReturn)="filterVehicleList =$event"></mat-select-filter>
+                            <mat-option *ngFor="let item of filterVehicleList" [value]="item.Vehicle_Code">
+                                {{item.Vehicle_Name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field >
+                        <mat-label>SAP Code</mat-label>
+                        <input [(ngModel)]="formData.Sap_Code" #Sap_Code="ngModel" name="Sap_Code" matInput placeholder="SAP Code">
+                        <mat-hint>Hint</mat-hint>
+                      </mat-form-field>
+                </div>
+
+                <div class="col-md-3">
+                    <mat-form-field>
+                        <mat-select  [(ngModel)]="formData.Field_Officer" #Field_Officer="ngModel" name="Field_Officer" placeholder="Filed Officer">
+                            <mat-select-filter></mat-select-filter>
+                            <mat-option value="191">
+                               offier1
+                            </mat-option>
+
+                            <mat-option value="191">
+                                offier2
+                             </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                
+
+                <div class="col-md-3">
+                    <mat-form-field>
+                        <mat-select  [(ngModel)]="formData.Center_Code" #Center_Code="ngModel" name="Center_Code" placeholder="BMC">
+                            <mat-select-filter [array]="BmcList" [placeholder]="'Filter'" [displayMember]="'Center_Name'" (filteredReturn)="filterBmcList =$event"></mat-select-filter>
+                            <mat-option *ngFor="let item of filterBmcList" [value]="item.Center_Code">
+                                {{item.Center_Name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+
+                <div class="col-md-3">
+                    <mat-form-field>
+                        <mat-select  [(ngModel)]="formData.Route_Contractor_Code" #Route_Contractor_Code="ngModel" name="Route_Contractor_Code" placeholder="Contractor">
+                            <mat-select-filter [array]="ContractorList" [placeholder]="'Filter'" [displayMember]="'Contractor_Name'" (filteredReturn)="filterContractorList =$event"></mat-select-filter>
+                            <mat-option *ngFor="let item of filterContractorList" [value]="item.Contractor_Code">
+                                {{item.Contractor_Name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                <mat-slide-toggle 
+                [(ngModel)]="formData.Rt_Mix_Milk" #Rt_Mix_Milk="ngModel" name="Rt_Mix_Milk"
+                class="example-margin"
+                color="primary"
+                [checked]="formData.Rt_Mix_Milk">
+              Route Mix Milk
+            </mat-slide-toggle>
+            </div>
+
+             </div>
+
+            
+          </mat-card-content>
+        </form>
+
+        <mat-card-actions align="end">
+      <button (click)="close()"  mat-button>Cancle</button>
+          <button (click)="OnSave()"  mat-button>Save</button> 
+        </mat-card-actions>
+      </mat-card>
+</div>

@@ -1,0 +1,77 @@
+<div class="card">
+
+    <div class="card-body">
+  
+        <div class="row">
+            <div class="col col-md-3">
+                <mat-form-field>
+                    <input [(ngModel)]="formData.ydate_from"  #ydate_from="ngModel" name="ydate_from"  matInput [matDatepicker]="Start_year" placeholder="Start Year">
+                    <mat-datepicker-toggle matSuffix [for]="Start_year"></mat-datepicker-toggle>
+                    <mat-datepicker  #Start_year></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <div class="col col-md-3">
+                <mat-form-field>
+                    <input  [(ngModel)]="formData.ydate_to" value="01/04/2023" (yearSelected)="onYearSelected($event)"  #ydate_to="ngModel" name="ydate_to"  matInput [matDatepicker]="End_year" placeholder="End year">
+                    <mat-datepicker-toggle matSuffix [for]="End_year"></mat-datepicker-toggle>
+                    <mat-datepicker  #End_year></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <div class="col col-md-3">
+                <mat-form-field>
+                    <input  [(ngModel)]="formData.desc"  #desc="ngModel" name="desc" placeholder="Description" type="text" matInput>
+                </mat-form-field>
+            </div>
+
+            <div class="col col-md-3 pt-3">
+                <button (click)="addCyclePayment()" class="btn btn-primary btn-sm">Create Cycle Year</button>
+            </div>
+        </div>
+  
+  
+      <div class="row">
+        <div class="col col-md-12">
+          <div>
+            <div class="table-responsive">
+              <table style="width: 100%;" class="table  table-bordered table-hover row-table hover table-lg">
+                <thead>
+                  <tr>
+                    <th style="text-transform:capitalize;">SNo.</th>
+                    <th style="text-transform:capitalize;">year Code</th>
+                    <th style="text-transform:capitalize;">Start Date</th>
+                    <th style="text-transform:capitalize;">End Date</th>
+                    <th style="text-transform:capitalize;">Description</th>
+                    <th style="text-transform:capitalize;" class="text-center">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let Data Of yearPaymentist| slice: (page-1) * pageSize : (page-1) * pageSize + pageSize;let i=index">
+                    <td>{{ pageSize *(page-1) + i+ 1}}</td>
+                        <td>{{Data.YearCode}}</td>
+                        <td>{{Data.StartDate}}</td>
+                        <td>{{Data.EndDate}}</td>
+                        <td>{{Data.Desc}}</td>
+                    <td><mat-icon  (click)="OpenPaymentDialog(Data)" style="color: navy;">add</mat-icon>
+                      
+                    </td>
+  
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <ngb-pagination *ngIf="yearPaymentist.length>0" [collectionSize]="yearPaymentist.length" [(page)]="page"
+                [pageSize]="pageSize" class="d-flex justify-content-center"></ngb-pagination>
+          </div>
+        </div>
+      </div>
+  
+  
+      
+  
+  
+  
+  
+    </div>
+  </div>

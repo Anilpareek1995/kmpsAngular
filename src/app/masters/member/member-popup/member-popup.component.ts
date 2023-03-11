@@ -3,11 +3,13 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { BmcModel } from 'src/app/models/BmcModel';
 import { GeoGraphicModel } from 'src/app/models/DemoGraphic.Model';
 import { MccModel } from 'src/app/models/MccModel';
+import { MemberModel } from 'src/app/models/MemberModel';
 import { MppModel } from 'src/app/models/MppModel';
 import { PlantModel } from 'src/app/models/plantModel';
 import { RouteModel } from 'src/app/models/RouteModel';
 import { BmcService } from 'src/app/services/bmc.service';
 import { MccService } from 'src/app/services/mcc.service';
+import { MemberService } from 'src/app/services/member.service';
 import { MppService } from 'src/app/services/mpp.service';
 import { PlantService } from 'src/app/services/plant.service';
 import { RouteService } from 'src/app/services/route.service';
@@ -30,6 +32,8 @@ export class MemberPopupComponent implements OnInit {
   filterTehsilList:any[]=[];
   VillageList:any[]=[];
   filterVillageList:any[]=[];
+  HamletList:any[]=[];
+  filterHamletList:any[]=[];
   RouteCodeList:any[]=[];
   filterRouteCodeList:any[]=[];
   PlantList:any[]=[];
@@ -38,15 +42,17 @@ export class MemberPopupComponent implements OnInit {
   filterMccList:any[]=[];
   BmcList:any[]=[];
   filterBmcList:any[]=[];
-
   MppList :any[]=[];
   filterMppList:any[]=[];
+  BankList :any[]=[];
+  filterBankList:any[]=[];
  
  
  //  MccData = new MccModel();
    mppData  = new MppModel();
    GeoData = new GeoGraphicModel();
    RouteData = new RouteModel();
+   formData = new MemberModel();
   btnTxt = "";
   isArrow:boolean = false;
   SelectedBmcCode = "";
@@ -68,25 +74,31 @@ export class MemberPopupComponent implements OnInit {
   private RouteService:RouteService,
   private plantService:PlantService,
   private BmcService:BmcService,
-  private mppService:MppService
+  private mppService:MppService,
+  private memberService:MemberService
 
  ){
  
   }
   ngOnInit(): void {
   
-   this.mppData = this.data.mppData;
+   this.formData = this.data.formData;
    this.btnTxt = this.data.btnTxt;
    this.SelectedBmcCode = this.data.SelectedBmcCode;
-   this.getAllRoute(0);
+   this.formData.Plant_Id = 1;
    this.GetAllState();
    this.getAllPlant();
-   this.getAllMcc(0);
-   this.getBmcAll(0);
-   if(this.mppData.State_Code>0){
+   this.getBankList();
+   if(this.formData.Farmer_Id>0){
+    this.formData.MCC_Id = 1;
      this.GetAllDistrict(0);
      this.GetAlltehsil(0);
      this.GetAllVillage(0)
+     this.getAllMcc(0);
+     this.getBmcAll(0);
+     this.getAllRoute(0);
+     this.getMppAll(0);
+    
    }
   
   }
@@ -120,8 +132,9 @@ export class MemberPopupComponent implements OnInit {
    this.VillageList = [];
    this.filterVillageList = [];
    this.GeoData.calltype = 'GetDistrict';
-   this.GeoData.StateId =this.mppData.State_Code;
+   this.GeoData.StateId =this.formData.State_Id;
   this.stateService.AllDemographic(this.GeoData).subscribe((res:any)=>{
+    console.log("district",res)
    if(res.status==200){
     this.DistrictList =  res.result.Table;
     this.filterDistrictList = this.DistrictList.slice();
@@ -134,7 +147,7 @@ export class MemberPopupComponent implements OnInit {
    this.filterTehsilList= [];
    this.VillageList = [];
    this.filterVillageList = [];
-   this.GeoData.DistrictId = this.mppData.District_Id
+   this.GeoData.DistrictId = this.formData.District_Id
    this.GeoData.calltype = 'GetTahsil';
   this.stateService.AllDemographic(this.GeoData).subscribe((res:any)=>{
    if(res.status==200){
@@ -147,7 +160,7 @@ export class MemberPopupComponent implements OnInit {
  GetAllVillage(e:any){
    this.VillageList = [];
    this.filterVillageList = [];
-   this.GeoData.SubDistrictId =  this.mppData.Sub_District_Id
+   this.GeoData.SubDistrictId =  this.formData.Sub_District_Id
    this.GeoData.calltype = 'GetVillage';
   this.stateService.AllDemographic(this.GeoData).subscribe((res:any)=>{
    console.log("GetVillage",res);
@@ -157,10 +170,27 @@ export class MemberPopupComponent implements OnInit {
    }
   })
  }
+
+ GetAllHamlet(e:any){
+  this.HamletList = [];
+  this.filterHamletList = [];
+  this.GeoData.HamletId =  this.formData.Village_Id
+  this.GeoData.calltype = 'GetHamlet';
+ this.stateService.AllDemographic(this.GeoData).subscribe((res:any)=>{
+  if(res.status==200){
+   this.HamletList =  res.result.Table;
+   this.filterHamletList = this.HamletList.slice();
+  }
+ })
+}
  
  getAllRoute(e:any){
-  this.SelectedBmcCode = e.value;
-   this.RouteData.Center_Code = this.SelectedBmcCode
+  this.RouteCodeList = [];
+  this.filterRouteCodeList = [];
+  this.MppList = [];
+  this.filterMppList = [];
+  // this.SelectedBmcCode = e.value;
+   this.RouteData.Center_Code = this.formData.Center_Code.toString() //this.SelectedBmcCode
    this.RouteData.Company_Code =this.SessionService.getCurrentUser().value.CompanyCode;
    this.RouteData.Action = 'Get_All_Route';
   this.RouteService.getAllRoute(this.RouteData).subscribe((res:any)=>{
@@ -173,21 +203,40 @@ export class MemberPopupComponent implements OnInit {
  }
 
  getAllPlant(){
+  
 this.PlantList=[];
 this.filterPlantList=[];
+this.MccList=[];
+this.filterMccList=[];
+this.BmcList=[];
+this.filterBmcList=[];
+this.RouteCodeList = [];
+  this.filterRouteCodeList = [];
+this.MppList=[];
+this.filterMppList=[];
 var companyCode = this.SessionService.getCurrentUser().value.CompanyCode;
 var request = {Action:"Get_Data_Onload",Company_Code:companyCode}
 this.plantService.getplantAll(request).subscribe((res:any)=>{  
   if(res.status==200){
+    console.log("plant",res.result.Table)
     this.PlantList = res.result.Table;
-    this.filterPlantList = this.PlantList
+    this.filterPlantList = this.PlantList.slice();
   }
 })
 }
 
 getAllMcc(e:any){
+  console.log("mcc e",e.value);
+  console.log("plant id ",this.formData.Plant_Id)
+  console.log("mcc id ",this.formData.MCC_Id)
   this.MccList=[];
   this.filterMccList=[];
+  this.BmcList=[];
+  this.RouteCodeList = [];
+  this.filterRouteCodeList = [];
+    this.filterBmcList=[];
+    this.MppList=[];
+    this.filterMppList=[];
   var companyCode  = this.SessionService.getCurrentUser().value.CompanyCode;
   var request = {Company_Code:companyCode,Action:"Get_Data_Onload"}
   this.mccService.getMccAll(request).subscribe((res:any)=>{  
@@ -204,6 +253,8 @@ getAllMcc(e:any){
   getBmcAll(e:any){
     this.BmcList=[];
     this.filterBmcList=[];
+    this.MppList=[];
+    this.filterMppList=[];
     var CompanyCode = this.SessionService.getCurrentUser().value.CompanyCode;
     var request = {Comapny_Code:CompanyCode,Action:"Get_All_Center"}
     this.BmcService.getBmcAll(request).subscribe((res:any)=>{  
@@ -218,8 +269,10 @@ getAllMcc(e:any){
     }
 
     getMppAll(data:any){
+      this.MppList=[];
+      this.filterMppList=[];
       var CompanyCode = this.SessionService.getCurrentUser().value.CompanyCode;
-      var request = {Company_Code:CompanyCode,Action:"Get_All_Societies"}
+      var request = {Company_Code:CompanyCode,Center_Code:this.formData.Center_Code,Action:"Get_All_Societies"}
       this.mppService.getMppAll(request).subscribe((res:any)=>{  
         if(res.status==200){
           this.MppList = res.result.Table;
@@ -230,23 +283,40 @@ getAllMcc(e:any){
         }
       })
       }
+
+
+      getBankList(){
+        var CompanyCode = this.SessionService.getCurrentUser().value.CompanyCode;
+        var request = {Company_Code:CompanyCode,Action:"Get_Dropdown_Lists"}
+        this.memberService.getMemberAll(request).subscribe((res:any)=>{  
+          console.log("bank list",res.result.Table2)
+          if(res.status==200){
+            this.BankList = res.result.Table2;
+            this.filterBankList = this.BankList.slice();
+          }
+          else{
+            this.sharedService.openSnackBar("No Data found");
+          }
+        })
+        }
+  
+
+      
   
 
 
  
  
-  OnSaveMpp(){
-   this.mppData.Center_Code = this.SelectedBmcCode
-   this.mppData.Company_Code =this.SessionService.getCurrentUser().value.CompanyCode;
-   this.mppData.User_Code =this.SessionService.getCurrentUser().value.UserId;
-    if(this.mppData.Society_Code>0){
-      this.mppData.Action = "Update_Society"
+  OnSaveMember(){
+   this.formData.Company_Code =this.SessionService.getCurrentUser().value.CompanyCode;
+    if(this.formData.Farmer_Id>0){
+      this.formData.Action = "Update_Farmer"
     }
     else{
-      this.mppData.Action = "Add_Society"
+      this.formData.Action = "Insert_Farmer"
     }
-    console.log("this.mppData.Company_Code",this.mppData.Company_Code);
-    this.mppSerice.getMppAll(this.mppData).subscribe((res:any)=>{
+   
+    this.memberService.getMemberAll(this.formData).subscribe((res:any)=>{
       if(res.status==200){
         if(res.result.Table[0].is_successful==1){
           this.sharedService.openSnackBar(res.result.Table[0].message)

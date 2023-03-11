@@ -1,0 +1,108 @@
+<div class="card">
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col col-md-4">
+                <mat-icon (click)="OpenRouteDialog()" style="color: navy;">filter_alt</mat-icon>
+            </div>
+            </div>
+        <div class="row">
+            
+            
+
+<div class="col-md-4">
+    <mat-form-field>
+        <mat-select [(ngModel)]="formData.Center_Code" multiple #Center_Code="ngModel" name="Center_Code"   placeholder="BMC">
+            <mat-select-filter [array]="BmcList" [placeholder]="'Filter'" [displayMember]="'Center_Name'" (filteredReturn)="filterBmcList =$event"></mat-select-filter>
+            <mat-option *ngFor="let item of filterBmcList" [value]="item.Center_Code">
+                {{item.Center_Name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+
+
+<div class="col col-md-1 text-left pt-3">
+    <mat-icon (click)="OpenRouteDialog()" style="color: navy;">add_circle</mat-icon>
+</div>
+
+<div class="col col-md-1 text-left pt-3 ">
+    <mat-icon class="p-0 m-0"  (click)="OpenRouteDialog()" style="color: navy;">filter_alt</mat-icon>
+</div>
+
+     </div>
+
+
+     <div class="row">
+        <div class="col col-md-12">
+          <div>
+            <div class="table-responsive">
+              <table style="width: 100%;" class="table  table-bordered table-hover row-table hover table-lg">
+                <thead>
+                  <tr>
+                    <th style="text-transform:capitalize;">SNo.</th>
+                    <th style="text-transform:capitalize;">Sample No</th>
+                    <th style="text-transform:capitalize;">Member</th>
+                    <th style="text-transform:capitalize;">Date</th>
+                    <th style="text-transform:capitalize;">Shift</th>
+                    <th style="text-transform:capitalize;">Type</th>
+                    <th style="text-transform:capitalize;">Qty (ltr)</th>
+                    <th style="text-transform:capitalize;">Fat</th>
+                    <th style="text-transform:capitalize;">SNF</th>
+                    <th style="text-transform:capitalize;">RTPL</th>
+                    <th style="text-transform:capitalize;">Amount</th>
+                    <th style="text-transform:capitalize;">Opening At</th>
+                    <th style="text-transform:capitalize;">Status</th>
+                  <th style="text-transform:capitalize;" class="text-center">Action</th>
+                 </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let Data Of MemberTransList| slice: (page-1) * pageSize : (page-1) * pageSize + pageSize;let i=index">
+                    <td>{{ pageSize *(page-1) + i+ 1}}</td>
+                    <td>{{Data.Sample_No}}</td>
+                    <td>{{Data.Member}}</td>
+                    <td>{{Data.Collection_Date}}</td>
+                    <td>{{Data.Shift}}</td>
+                    <td>{{Data.Milk_Type}}</td>
+                    <td>{{Data.Qty_Mode}}</td>
+                    <td>{{Data.Fat}}</td>
+                    <td>{{Data.SNF}}</td>
+                    <td>{{Data.RTPL}}</td>
+                    <td>{{Data.Amount}}</td>
+                    <td>{{Data.Originating_At}}</td>
+                    <td><span class="badge rounded-pill bg-success">{{Data.Status}}</span>
+                        </td>
+                    <!-- <td>{{Data.BMC}}</td>
+                    
+                    
+                   
+                    
+                    
+                    <td>{{Data.Route}}</td>
+                    
+                   
+                    
+                    <td>{{Data.Society_Code}}</td>
+                   
+                    <td>{{Data.farmerId}}</td>
+                    <td>{{Data.qtyKg}}</td>
+                    <td>{{Data.shift1}}</td>
+                    <td>{{Data.type}}</td> -->
+                       
+                    <td><mat-icon  (click)="OpenPaymentDialog(Data)" style="color: navy;">edit</mat-icon>
+                      
+                    </td>
+  
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <ngb-pagination *ngIf="MemberTransList.length>0" [collectionSize]="MemberTransList.length" [(page)]="page"
+                [pageSize]="pageSize" class="d-flex justify-content-center"></ngb-pagination>
+          </div>
+        </div>
+      </div>
+</div>
+
+</div>
