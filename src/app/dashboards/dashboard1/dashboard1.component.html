@@ -1,14 +1,14 @@
 <!-- ============================================================== -->
 <!-- Simple four boxes Row -->
 <!-- ============================================================== -->
-<app-top-card></app-top-card>
+<app-top-card [dashboardlist]="dashboardlist"></app-top-card>
 <!-- ============================================================== -->
 <!-- Charts -->
 <!-- ============================================================== -->
 <div fxLayout="row wrap">
   <!-- Column-->
   <div fxFlex.gt-lg="75" fxFlex.gt-md="60" fxFlex.gt-xs="100" fxFlex="100">
-    <app-sales-overview></app-sales-overview>
+    <app-sales-overview [dashboardlist]="dashboardlist"></app-sales-overview>
   </div>
   <!-- Column-->
   <div fxFlex.gt-lg="25" fxFlex.gt-md="40" fxFlex.gt-xs="100" fxFlex="100">
@@ -16,10 +16,48 @@
   </div>
   <!-- Column-->
 </div>
+
+<div class="row">
+  <div fxFlex.gt-sm="1000" fxFlex.gt-xs="100" fxFlex="100">
+    <mat-card>
+      <mat-card-content>
+        <mat-card-title>Milk Collection</mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+        <div id="chart" class="d-flex flex-column">
+          <apx-chart
+            [series]="chartOptions.series"
+            [chart]="chartOptions.chart"
+            [dataLabels]="chartOptions.dataLabels"
+            [plotOptions]="chartOptions.plotOptions"
+            [yaxis]="chartOptions.yaxis"
+            [legend]="chartOptions.legend"
+            [fill]="chartOptions.fill"
+            [stroke]="chartOptions.stroke"
+            [tooltip]="chartOptions.tooltip"
+            [xaxis]="chartOptions.xaxis"
+            [grid]="chartOptions.grid"
+          >
+          </apx-chart>
+        </div>
+        <ul class="list-inline text-center">
+          <li>
+            <h6 class="text-muted text-info m-0"><i class="fa fa-circle font-10 m-r-10"></i>previous</h6>
+          </li>
+          <li>
+            <h6 class="text-muted text-success m-0">
+              <i class="fa fa-circle font-10 m-r-10"></i>Current
+            </h6>
+          </li>
+        </ul>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
 <!-- ============================================================== -->
 <!-- Chart boxes -->
 <!-- ============================================================== -->
-<app-income-expenss></app-income-expenss>
+<!-- <app-income-expenss></app-income-expenss> -->
 <!-- <div fxLayout="row wrap">
   <div fxFlex.gt-lg="25" fxFlex.gt-md="40" fxFlex.gt-xs="100" fxFlex="100">
     <app-posts></app-posts>

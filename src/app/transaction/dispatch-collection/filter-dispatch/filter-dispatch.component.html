@@ -1,0 +1,88 @@
+
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title"></div>
+                </div>
+            
+                <div class="card-body">
+                    <div class="row">
+            
+                        <div class="col-md-4">
+                            <mat-form-field>
+                                <mat-select     placeholder="MCC">
+                                    <mat-select-filter [array]="MccList" [placeholder]="'Filter'" [displayMember]="'Center_Name'" (filteredReturn)="filterBmcList =$event"></mat-select-filter>
+                                    <mat-option *ngFor="let item of filterMccList" [value]="item.Mcc_Code">
+                                        {{item.mcc_Name}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-4">
+                            <mat-form-field>
+                                <mat-select [(ngModel)]="formData.Center_Code" #Center_Code="ngModel" name="Center_Code"    placeholder="BMC">
+                                    <mat-select-filter [array]="BmcList" [placeholder]="'Filter'" [displayMember]="'Center_Name'" (filteredReturn)="filterBmcList =$event"></mat-select-filter>
+                                    <mat-option *ngFor="let item of filterBmcList" [value]="item.Center_Code">
+                                        {{item.Center_Name}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        
+                       
+            
+                        <div class="col-md-4">
+                            <mat-form-field>
+                                <mat-select [(ngModel)]="formData.Shift"  #Shift="ngModel" name="Shift"  placeholder="shift">
+                                    <mat-option value="M">
+                                        Morning
+                                    </mat-option>
+                                    <mat-option value="E">
+                                        Evening
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+            
+                        
+            
+                        <div class="col-md-3">
+                            <mat-form-field>
+                                <input [(ngModel)]="formData.Dock_No" #Dock_No="ngModel" name="Dock_No"   matInput placeholder="Dock">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+            
+                          <div class="col-md-3">
+                            <mat-form-field>
+                                <input [(ngModel)]="formData.Tray_No" #Tray_No="ngModel" name="Tray_No"   matInput placeholder="Tray">
+                                <mat-hint>Hint</mat-hint>
+                              </mat-form-field>
+                        </div>
+            
+            
+                          <div class="col col-md-3">
+                            <mat-form-field>
+                                <input [(ngModel)]="formData.Date" #Date="ngModel" name="Date"  matInput [matDatepicker]="labdate" placeholder="Date">
+                                <mat-datepicker-toggle matSuffix [for]="labdate"></mat-datepicker-toggle>
+                                <mat-datepicker  #labdate></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                         
+                    </div>
+            
+                   <div class="row">
+                    <div class="col-3 col-sm-3">
+                        <button (click)="filterLab()"  class="btn btn-primary">Search</button>
+                    </div>
+            
+                    <div class="col-3 col-sm-3 text-right">
+                        <button (click)="close()" class="btn btn-primary">Close</button>
+                    </div>
+                   </div> 
+                </div>
+            </div>
+       
+
+
+

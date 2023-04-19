@@ -65,8 +65,8 @@ export class VisitorComponent {
       legend: {
         show: false,
       },
-      labels: ['Mobile', 'Tablet', 'Desktop', 'Other'],
-      colors: ['#1e88e5', '#26c6da', '#745af2', '#eceff1'],
+      labels: ['Buffalow', 'Cow', 'Total'],
+      colors: ['#1e88e5', '#26c6da', '#745af2'],
       responsive: [
         {
           breakpoint: 767,

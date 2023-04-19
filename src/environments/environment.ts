@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   API_Url:"https://localhost:44355/",
- //API_Ur:'https://pumatraderapi.azurewebsites.net/'
+ // API_Url:'http://182.18.144.204:50011/'
  //API_Url:'https://devapi.ftlfortune.com/'
 
 };

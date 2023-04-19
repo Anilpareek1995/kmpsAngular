@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.checkToken();
+     this.checkToken();
     this.form = this.fb.group({
       email: [null, Validators.compose([Validators.required])],
       password: [null, Validators.compose([Validators.required])],
@@ -34,6 +34,8 @@ export class LoginComponent implements OnInit {
     this.AuthService.login({ USERloginCODE: this.form.value.email, USERPWD: this.form.value.password })
       .subscribe(res => {
         if (res.status == 200) {
+
+          console.log("login res",res);
         this.sharedService.closeSpinnerModel();
           this.sharedService.openSnackBar("Login Succesfuly!!")
           this.router.navigate([this.navigateUrl]);

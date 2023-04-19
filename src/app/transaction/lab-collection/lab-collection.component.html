@@ -1,0 +1,178 @@
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-sm-10">
+                <div class="car-title">Lab Collection </div>
+            </div>
+            <div class="col-sm-2 text-right">
+                <mat-icon (click)="OpenLabPopupDialog()" style="color: navy;">add</mat-icon>
+                <mat-icon (click)="OpenFilterDialog()" style="color: navy;">filter</mat-icon>
+            </div>
+        </div>
+        
+    </div>
+
+
+        
+                
+        
+ 
+    <div class="card-body">
+  
+        
+  
+  
+      <div class="row">
+        <div class="col col-md-12">
+          <div>
+            <div class="table-responsive">
+              <table style="width: 100%;" class="table  table-bordered table-hover row-table hover table-lg">
+                <thead>
+                  <tr>
+
+<!-- <th class="text-wrap" style="text-transform:capitalize;">All Dock Collection </th>      -->
+<th class="text-wrap" style="text-transform:capitalize;">Arrival Time</th>
+<!-- <th class="text-wrap" style="text-transform:capitalize;">Can Average Weight</th> -->
+<th class="text-wrap" style="text-transform:capitalize;">Can Capacity</th>
+<th class="text-wrap" style="text-transform:capitalize;">Category</th>
+<!-- <th class="text-wrap" style="text-transform:capitalize;">Category1</th> -->
+<th class="text-wrap" style="text-transform:capitalize;">Center Code</th>
+<th class="text-wrap" style="text-transform:capitalize;">Contractor Name</th>
+<th class="text-wrap" style="text-transform:capitalize;">Display</th>
+<th class="text-wrap" style="text-transform:capitalize;">Essae Display</th>
+<th class="text-wrap" style="text-transform:capitalize;">Display Baud_Rate</th>
+<th class="text-wrap" style="text-transform:capitalize;">Display Port</th>
+<!-- <th class="text-wrap" style="text-transform:capitalize;">COM2</th> -->
+<!-- <th class="text-wrap" style="text-transform:capitalize;">Dock After_Decimal</th> -->
+<th class="text-wrap" style="text-transform:capitalize;">Dock Collection</th>
+<th class="text-wrap" style="text-transform:capitalize;">Dump Date</th>
+<th class="text-wrap" style="text-transform:capitalize;">Grade</th>
+<th class="text-wrap" style="text-transform:capitalize;">Is Display</th>
+<!-- <th class="text-wrap" style="text-transform:capitalize;">Is Hanging Bowl</th> -->
+<th class="text-wrap" style="text-transform:capitalize;">Is Manual</th>
+<!-- <th class="text-wrap" style="text-transform:capitalize;">Is PaymentCycle Lock</th> -->
+<!-- <th class="text-wrap" style="text-transform:capitalize;">Is Weight Round</th> -->
+<!-- <th class="text-wrap" style="text-transform:capitalize;">Collection Access</th> -->
+<th class="text-wrap" style="text-transform:capitalize;">Route Code</th>
+<th class="text-wrap" style="text-transform:capitalize;">Route Total</th>
+<th class="text-wrap" style="text-transform:capitalize;">Sample Id</th>
+<th class="text-wrap" style="text-transform:capitalize;">Schedule Time</th>
+<th class="text-wrap" style="text-transform:capitalize;">Shift</th>
+<th class="text-wrap" style="text-transform:capitalize;">Total Cans</th>
+<th class="text-wrap" style="text-transform:capitalize;">Vehicle Name</th>
+<!-- <th class="text-wrap" style="text-transform:capitalize;">KASHEE    </th>           -->
+<!-- <th class="text-wrap" style="text-transform:capitalize;">Weighing Baud Rate</th> -->
+<!-- <th class="text-wrap" style="text-transform:capitalize;">Weighing Port</th> -->
+<th class="text-wrap" style="text-transform:capitalize;">COM3</th>
+<!-- <th class="text-wrap" style="text-transform:capitalize;">Weighing Scale</th> -->
+<!-- <th class="text-wrap" style="text-transform:capitalize;">SaWeighing Scale</th> -->
+<!-- <th class="text-wrap" style="text-transform:capitalize;">Weight Round By</th> -->
+                    <th style="text-transform:capitalize;" class="text-center">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+
+                                  <tr *ngFor="let Data Of LabcollectionList| slice: (page-1) * pageSize : (page-1) * pageSize + pageSize;let i=index">
+                    <td>{{ pageSize *(page-1) + i+ 1}}</td>
+                    
+
+
+
+<td>{{Data.All_Dock_Collection}}</td>
+
+<td>{{Data.Arrival_Time}}</td>
+
+<td>{{Data.Can_Average_Weight}}</td>
+
+<td>{{Data.Can_Capacity}}</td>
+
+<td>{{Data.Category}}</td>
+
+<td>{{Data.Category1}}</td>
+
+<td>{{Data.Center_Code}}</td>
+
+<td>{{Data.Contractor_Name}}</td>
+
+<td>{{Data.Display}}</td>
+
+<td>{{Data.Essae_Display}}</td>
+
+<td>{{Data.Display_Baud_Rate}}</td>
+
+<td>{{Data.Display_Port}}</td>
+
+<td>{{Data.COM2}}</td>
+
+<td>{{Data.Dock_After_Decimal}}</td>
+
+<td>{{Data.Dock_Collection}}</td>
+
+<td>{{Data.Dump_Date}}</td>
+
+<td>{{Data.Grade}}</td>
+
+<td>{{Data.Is_Display}}</td>
+
+<td>{{Data.Is_Hanging_Bowl}}</td>
+
+<td>{{Data.Is_Manual}}</td>
+
+<td>{{Data.Is_Payment_Cycle_Lock}}</td>
+
+<td>{{Data.Is_Weight_Round}}</td>
+
+<td>{{Data.Manual_Collection_Access}}</td>
+
+<td>{{Data.Route_Code}}</td>
+
+<td>{{Data.Route_Total}}</td>
+
+<td>{{Data.Sample_Id}}</td>
+
+<td>{{Data.Schedule_Time}}</td>
+
+<td>{{Data.Shift}}</td>
+
+<td>{{Data.Total_Cans}}</td>
+
+<td>{{Data.Vehicle_Name}}</td>
+
+<td>{{Data.KASHEE}}</td>
+    
+<td>{{Data.Weighing_Baud_Rate}}</td>
+
+<td>{{Data.Weighing_Port}}</td>
+
+<td>{{Data.COM3}}</td>
+
+<td>{{Data.Weighing_Scale}}</td>
+
+<td>{{Data.Samudra_Weighing_Scale}}</td>
+
+<td>{{Data.Weight_Round_By}}</td>
+
+                    <td><mat-icon style="color: navy;">add</mat-icon>
+                      
+                    </td>
+  
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <ngb-pagination *ngIf="LabcollectionList.length>0" [collectionSize]="LabcollectionList.length" [(page)]="page" [pageSize]="pageSize" [maxSize]="5" class="d-flex justify-content-center"></ngb-pagination>
+          
+                
+              </div>
+        </div>
+      </div>
+  
+  
+      
+  
+  
+  
+  
+    </div>
+  </div>

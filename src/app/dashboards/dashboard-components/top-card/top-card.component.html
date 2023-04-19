@@ -2,19 +2,45 @@
   <!-- column -->
   <div fxFlex.gt-sm="25" fxFlex.gt-xs="100" fxFlex="100">
     <mat-card>
+      <mat-card-header>
+        <div class="row">
+          <div class="col-6 tetx-left">
+            BMC
+          </div>
+
+          <div class="col-6 tetx-left">
+            Total  :- {{dashboardlist.EveningAmt}}
+          </div>
+        </div>
+      </mat-card-header>
       <mat-card-content>
         <!-- Row -->
         <div class="d-flex no-block">
           <!-- column -->
           <div class="m-r-10 no-shrink">
             <button mat-fab mat-card-icon class="shadow-none bg-inverse bg-success">
-              <mat-icon>account_circle</mat-icon>
+              {{dashboardlist.EveningAmt}}
             </button>
           </div>
           <!-- column -->
           <div>
-            <h3 class="m-0">386</h3>
-            <h6 class="text-muted m-0">New Clients</h6>
+            <!-- <h3 class="m-0">386</h3> -->
+            <h6 class="text-muted m-0">POURED Morning</h6>
+          </div>
+        </div>
+
+        <hr style="background-color: brown;">
+        <div class="d-flex no-block">
+          <!-- column -->
+          <div class="m-r-10 no-shrink">
+            <button mat-fab mat-card-icon class="shadow-none bg-inverse bg-success">
+              {{dashboardlist.EveningAmt}}
+            </button>
+          </div>
+          <!-- column -->
+          <div>
+            <!-- <h3 class="m-0">386</h3> -->
+            <h6 class="text-muted m-0">POURED Evening</h6>
           </div>
         </div>
       </mat-card-content>
@@ -24,19 +50,46 @@
   <!-- column -->
   <div fxFlex.gt-sm="25" fxFlex.gt-xs="100" fxFlex="100">
     <mat-card>
+
+      <mat-card-header>
+        <div class="row">
+          <div class="col-6 tetx-left">
+            Member
+          </div>
+
+          <div class="col-6 tetx-left">
+            Total  :-   {{dashboardlist.EveningAmt}}
+          </div>
+        </div>
+      </mat-card-header>
       <mat-card-content>
         <!-- Row -->
         <div class="d-flex no-block">
           <!-- column -->
           <div class="m-r-10 no-shrink">
             <button mat-fab color="warn" mat-card-icon class="shadow-none bg-warning">
-              <mat-icon>local_mall</mat-icon>
+              {{dashboardlist.EveningAmt}}
             </button>
           </div>
           <!-- column -->
           <div>
-            <h3 class="m-0">2408</h3>
-            <h6 class="text-muted m-0">All Projects</h6>
+            <!-- <h3 class="m-0">2408</h3> -->
+            <h6 class="text-muted m-0">POURED Morning</h6>
+          </div>
+        </div>
+
+        <hr style="background-color: brown;">
+        <div class="d-flex no-block">
+          <!-- column -->
+          <div class="m-r-10 no-shrink">
+            <button mat-fab color="warn" mat-card-icon class="shadow-none bg-warning">
+              {{dashboardlist.EveningAmt}}
+            </button>
+          </div>
+          <!-- column -->
+          <div>
+            <!-- <h3 class="m-0">2408</h3> -->
+            <h6 class="text-muted m-0">POURED Evening</h6>
           </div>
         </div>
       </mat-card-content>
@@ -46,19 +99,46 @@
   <!-- column -->
   <div fxFlex.gt-sm="25" fxFlex.gt-xs="100" fxFlex="100">
     <mat-card>
+
+      <mat-card-header>
+        <div class="row">
+          <div class="col-6 tetx-left">
+            Sample
+          </div>
+
+          <div class="col-6 tetx-left">
+            Total  :-  {{dashboardlist.EveningAmt}}
+          </div>
+        </div>
+      </mat-card-header>
       <mat-card-content>
         <!-- Row -->
         <div class="d-flex no-block">
           <!-- column -->
           <div class="m-r-10 no-shrink">
             <button mat-fab color="accent" mat-card-icon class="shadow-none">
-              <mat-icon>stars</mat-icon>
+              {{dashboardlist.EveningAmt}}
             </button>
           </div>
           <!-- column -->
           <div>
-            <h3 class="m-0">352</h3>
-            <h6 class="text-muted m-0">New Items</h6>
+            <!-- <h3 class="m-0">352</h3> -->
+            <h6 class="text-muted m-0">POURED Morning</h6>
+          </div>
+        </div>
+
+        <hr style="background-color: brown;">
+        <div class="d-flex no-block">
+          <!-- column -->
+          <div class="m-r-10 no-shrink">
+            <button mat-fab color="accent" mat-card-icon class="shadow-none">
+              {{dashboardlist.EveningAmt}}
+            </button>
+          </div>
+          <!-- column -->
+          <div>
+            <!-- <h3 class="m-0">352</h3> -->
+            <h6 class="text-muted m-0">POURED Evening</h6>
           </div>
         </div>
       </mat-card-content>
@@ -71,20 +151,93 @@
       <mat-card-content>
         <!-- Row -->
         <div class="d-flex no-block">
+
+          <div class="col-6">
+            <div class="m-r-10 no-shrink">
+              <button mat-fab color="warn" mat-card-icon class="shadow-none bg-danger">
+                {{dashboardlist.MorningFat}}
+              </button>
+            </div> 
+            <!-- column -->
+             <div>
+              <!-- <h3 class="m-0">{{dashboardlist.MorningFat}}</h3> -->
+              <h6 class="text-muted m-0">Avg fat Morning</h6>
+            </div> 
+          </div>
+
+          <div class="col-6">
+            <div class="m-r-10 no-shrink">
+              <button mat-fab color="warn" mat-card-icon class="shadow-none bg-danger">
+                {{dashboardlist.EveningFat}}
+              </button>
+            </div> 
+            <!-- column -->
+             <div>
+              <!-- <h3 class="m-0">{{dashboardlist.EveningFat}}</h3> -->
+              <h6 class="text-muted m-0">Avg fat Evening</h6>
+            </div> 
+          </div>
           <!-- column -->
-          <div class="m-r-10 no-shrink">
+          <!-- <div class="m-r-10 no-shrink">
             <button mat-fab color="warn" mat-card-icon class="shadow-none bg-danger">
               <mat-icon>content_paste</mat-icon>
             </button>
-          </div>
+          </div> -->
           <!-- column -->
-          <div>
+          <!-- <div>
             <h3 class="m-0">159</h3>
             <h6 class="text-muted m-0">New Invoices</h6>
+          </div> -->
+        </div>
+<hr style="background-color: brown;">
+        <div class="d-flex no-block">
+
+          <div class="col-6">
+            <div class="m-r-10 no-shrink">
+              <button mat-fab color="warn" mat-card-icon class="shadow-none bg-danger">
+                {{dashboardlist.MorningSnf}}
+              </button>
+            </div> 
+            <!-- column -->
+             <div>
+              <!-- <h3 class="m-0">{{dashboardlist.MorningSnf}}</h3> -->
+              <h6 class="text-muted m-0">Avg SNF Morning</h6>
+            </div> 
           </div>
+
+          <div class="col-6">
+            <div class="m-r-10 no-shrink">
+              <button mat-fab color="warn" mat-card-icon class="shadow-none bg-danger">
+                {{dashboardlist.EveningSnf}}
+              </button>
+            </div> 
+            <!-- column -->
+             <div>
+              <!-- <h3 class="m-0">{{dashboardlist.EveningSnf}}</h3> -->
+              <h6 class="text-muted m-0">Avg SNF Evening</h6>
+            </div> 
+          </div>
+
+         
+
+         
+          <!-- column -->
+          <!-- <div class="m-r-10 no-shrink">
+            <button mat-fab color="warn" mat-card-icon class="shadow-none bg-danger">
+              <mat-icon>content_paste</mat-icon>
+            </button>
+          </div> -->
+          <!-- column -->
+          <!-- <div>
+            <h3 class="m-0">159</h3>
+            <h6 class="text-muted m-0">New Invoices</h6>
+          </div> -->
         </div>
       </mat-card-content>
     </mat-card>
   </div>
   <!-- column -->
+
+
+  
 </div>

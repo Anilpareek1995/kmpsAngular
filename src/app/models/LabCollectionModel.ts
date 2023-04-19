@@ -1,0 +1,36 @@
+export class LabcollectionModel{
+     Center_Code :Number=0;
+     Company_Code :Number=0;
+     Shift :String="";
+     Dock_No :Number=0;
+     Tray_No :Number=0;
+     Time :Date=new Date();
+     Date :Date=new Date();
+     Sample_No :Number=0;
+     Error_Name :String="";
+     Fat :Number=0;
+     SNF :Number=0;
+     LR :Number=0;
+     Protein :Number=0; 
+     Water :String="";
+     Density :Number=0;
+     Freezing_Point :Number=0; 
+     Urea :String=""; 
+     Maltodex :String=""; 
+     Ammsulp :String=""; 
+     Sucrose :String=""; 
+     Abnormal :String=""; 
+     Bad_Sample :String="";
+     User_Code :String="";
+     Remark_Lab :String="";
+     Is_Manual_Lab :Number=0;
+     Sample_ID :Number=0;
+     Manual_SNF :Number=0;
+     Action :String="";
+     Is_Skip :Number=0;
+     Public_Ip :String=""; 
+     Type :String="";
+     Is_Payment_Cycle_Lock :Number=0;
+     Average_Fat :Number=0; 
+     Grade :String=""; 
+}

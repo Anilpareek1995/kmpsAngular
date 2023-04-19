@@ -17,6 +17,12 @@ import { TruckArrivalComponent } from './truck-arrival/truck-arrival.component';
 import { TruckArrivalPopupComponent } from './truck-arrival/truck-arrival-popup/truck-arrival-popup.component';
 import { DockCollectionComponent } from './dock-collection/dock-collection.component';
 import { DockPopupComponent } from './dock-collection/dock-popup/dock-popup.component';
+import { LabCollectionComponent } from './lab-collection/lab-collection.component';
+import { LabPopupComponent } from './lab-collection/lab-popup/lab-popup.component';
+import { LabFilterComponent } from './lab-collection/lab-filter/lab-filter.component';
+import { DispatchCollectionComponent } from './dispatch-collection/dispatch-collection.component';
+import { FilterDispatchComponent } from './Dispatch-collection/filter-dispatch/filter-dispatch.component';
+import { DispatchPopupComponent } from './Dispatch-collection/dispatch-popup/dispatch-popup.component';
 
 
 @NgModule({
@@ -27,7 +33,13 @@ import { DockPopupComponent } from './dock-collection/dock-popup/dock-popup.comp
     TruckArrivalComponent,
     TruckArrivalPopupComponent,
     DockCollectionComponent,
-    DockPopupComponent
+    DockPopupComponent,
+    LabCollectionComponent,
+    LabPopupComponent,
+    LabFilterComponent,
+    DispatchCollectionComponent,
+    FilterDispatchComponent,
+    DispatchPopupComponent
   ],
   imports: [
     CommonModule,

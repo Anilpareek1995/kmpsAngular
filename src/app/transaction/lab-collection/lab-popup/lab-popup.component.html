@@ -1,0 +1,54 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title"></div>
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+
+            <div class="col-md-3">
+                <mat-form-field>
+                    <input [(ngModel)]="formData.Sample_ID" #Sample_ID="ngModel" name="Sample_ID"   matInput placeholder="Sample">
+                    <mat-hint>Hint</mat-hint>
+                  </mat-form-field>
+            </div>
+
+              <div class="col-md-3">
+                <mat-form-field>
+                    <input [(ngModel)]="formData.Grade" #Grade="ngModel" name="Grade"   matInput placeholder="Grade">
+                    <mat-hint>Hint</mat-hint>
+                  </mat-form-field>
+            </div>
+
+            <div class="col-md-3">
+                <mat-form-field>
+                    <input [(ngModel)]="formData.Fat" #Fat="ngModel" name="Fat" matInput placeholder="Fat">
+                    <mat-hint>Hint</mat-hint>
+                  </mat-form-field>
+            </div>
+
+            <div class="col-md-3">
+                <mat-form-field>
+                    <input [(ngModel)]="formData.SNF" #SNF="ngModel" name="SNF" matInput placeholder="SNF">
+                    <mat-hint>Hint</mat-hint>
+                  </mat-form-field>
+            </div>
+
+
+             
+             
+        </div>
+
+       <div class="row">
+        <div class="col-3 col-sm-3">
+            <button (click)="onSaveLabCollection()"   class="btn btn-primary">Save</button>
+        </div>
+
+        <div class=" col-3 col-sm-3 text-right">
+            <button (click)="close()" class="btn btn-primary">Close</button>
+        </div>
+       </div> 
+    </div>
+</div>
+
+

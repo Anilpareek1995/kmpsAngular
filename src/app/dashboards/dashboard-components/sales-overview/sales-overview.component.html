@@ -1,32 +1,85 @@
-<mat-card>
-  <mat-card-content>
-    <mat-card-title>Operations Overview</mat-card-title>
-    <mat-card-subtitle>GR and Freight Memo</mat-card-subtitle>
-    <div id="chart" class="d-flex flex-column">
-      <apx-chart
-        [series]="chartOptions.series"
-        [chart]="chartOptions.chart"
-        [dataLabels]="chartOptions.dataLabels"
-        [plotOptions]="chartOptions.plotOptions"
-        [yaxis]="chartOptions.yaxis"
-        [legend]="chartOptions.legend"
-        [fill]="chartOptions.fill"
-        [stroke]="chartOptions.stroke"
-        [tooltip]="chartOptions.tooltip"
-        [xaxis]="chartOptions.xaxis"
-        [grid]="chartOptions.grid"
-      >
-      </apx-chart>
-    </div>
-    <ul class="list-inline text-center">
-      <li>
-        <h6 class="text-muted text-info m-0"><i class="fa fa-circle font-10 m-r-10"></i>Freight Memo</h6>
-      </li>
-      <li>
-        <h6 class="text-muted text-success m-0">
-          <i class="fa fa-circle font-10 m-r-10"></i>GR
-        </h6>
-      </li>
-    </ul>
-  </mat-card-content>
-</mat-card>
+
+<div fxFlex.gt-sm="75" fxFlex.gt-xs="100" fxFlex="100">
+  <mat-card>
+
+    <mat-card-header>
+      <div class="row">
+        <div class="col-6 tetx-left">
+          Milk Qty
+        </div>
+
+        <div class="col-6 tetx-center">
+          Total
+        </div>
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <!-- Row -->
+      <div class="d-flex no-block">
+        <!-- column -->
+        <div class="m-r-10 no-shrink">
+          <button mat-fab color="accent" mat-card-icon class="shadow-none">
+            {{dashboardlist.MorningQty}}
+          </button>
+        </div>
+        <!-- column -->
+        <div>
+          <!-- <h3 class="m-0">352</h3> -->
+          <h6 class="text-muted m-0">POURED Morning</h6>
+        </div>
+      </div>
+
+      <hr style="background-color: brown;">
+      <div class="d-flex no-block">
+        <!-- column -->
+        <div class="m-r-10 no-shrink">
+          <button mat-fab color="accent" mat-card-icon class="shadow-none">
+            {{dashboardlist.EveningQty}}
+          </button>
+        </div>
+        <!-- column -->
+        <div>
+          <!-- <h3 class="m-0">352</h3> -->
+          <h6 class="text-muted m-0">POURED Evening</h6>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+<!-- <div fxFlex.gt-sm="50" fxFlex.gt-xs="100" fxFlex="100">
+  <mat-card>
+    <mat-card-content>
+      <mat-card-title>Milk Type</mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+      <div id="chart" class="d-flex flex-column">
+        <apx-chart
+          [series]="chartOptions.series"
+          [chart]="chartOptions.chart"
+          [dataLabels]="chartOptions.dataLabels"
+          [plotOptions]="chartOptions.plotOptions"
+          [yaxis]="chartOptions.yaxis"
+          [legend]="chartOptions.legend"
+          [fill]="chartOptions.fill"
+          [stroke]="chartOptions.stroke"
+          [tooltip]="chartOptions.tooltip"
+          [xaxis]="chartOptions.xaxis"
+          [grid]="chartOptions.grid"
+        >
+        </apx-chart>
+      </div>
+      <ul class="list-inline text-center">
+        <li>
+          <h6 class="text-muted text-info m-0"><i class="fa fa-circle font-10 m-r-10"></i>Freight Memo</h6>
+        </li>
+        <li>
+          <h6 class="text-muted text-success m-0">
+            <i class="fa fa-circle font-10 m-r-10"></i>GR
+          </h6>
+        </li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+</div> -->
+

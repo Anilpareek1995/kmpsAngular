@@ -439,7 +439,6 @@ export class CreateRateComponent implements OnInit {
       }
       else {
         this.sharedService.openSnackBar(res.result.Table[0].message)
-
       }
     })
 
